@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>11PET — 펫 케어 서비스 및 AI 기술 기술마케팅 전략</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=Archivo:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFFFF;--ink:#17161C;--sub:#5B5866;--mute:#94919E;--line:#E5E3EB;--soft:#F5F4F8;--bezel:#E7E5EC;
+  --red:#F43142;--redk:#C4172A;--redbg:#FFEDEF;
+  --g:#23935A;--gbg:#E5F4EB;--b:#2459C2;--bbg:#E6EEFB;--gold:#B88A2E;--kbg:#F3EFE4;--kchip:#1D1C21;--p:#5F43CF;--pbg:#EEEAFD;
+  --trbg:#E1F3EF;--tr:#0E6A58;--tvbg:#FFF0D2;--tv:#865600;
+  --sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+  --num:"Archivo","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#17161B;--ink:#F1F0F4;--sub:#B7B4C0;--mute:#7E7B88;--line:#2F2D36;--soft:#211F27;--bezel:#0B0A0E;
+  --redk:#FF6B78;--redbg:#3B141A;--g:#5BCB8E;--gbg:#14301F;--b:#7FA6F2;--bbg:#162543;--gold:#E0B95E;--kbg:#2B271D;--kchip:#2C2A33;--p:#A794F5;--pbg:#251E47;
+  --trbg:#123029;--tr:#6FD6BF;--tvbg:#35290F;--tv:#F2C46A;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#17161B;--ink:#F1F0F4;--sub:#B7B4C0;--mute:#7E7B88;--line:#2F2D36;--soft:#211F27;--bezel:#0B0A0E;
+  --redk:#FF6B78;--redbg:#3B141A;--g:#5BCB8E;--gbg:#14301F;--b:#7FA6F2;--bbg:#162543;--gold:#E0B95E;--kbg:#2B271D;--kchip:#2C2A33;--p:#A794F5;--pbg:#251E47;
+  --trbg:#123029;--tr:#6FD6BF;--tvbg:#35290F;--tv:#F2C46A;color-scheme:dark}
+.hd{display:flex;align-items:center;gap:12px;margin-bottom:12px;min-height:32px}
+.tool{font-size:16px;font-weight:500;color:var(--redk);border:1.5px solid var(--red);border-radius:999px;padding:4px 15px;white-space:nowrap}
+.tool.k{color:var(--sub);border-color:var(--line)}
+h2.tt{font-size:44px;font-weight:700;letter-spacing:-.025em;line-height:1.2;margin:0 0 24px}
+.body{flex:1;min-height:0;display:grid;gap:30px}
+.c2{grid-template-columns:1fr 1fr}.c32{grid-template-columns:1.45fr 1fr}.c23{grid-template-columns:1fr 1.45fr}
+.dec{margin-top:18px;background:var(--redbg);border-left:6px solid var(--red);padding:15px 22px;font-size:22px;line-height:1.4;display:flex;gap:18px;align-items:baseline}
+.dec b{color:var(--redk);white-space:nowrap;font-weight:700}
+.who{position:absolute;right:80px;bottom:18px;font-size:15px;color:var(--mute)}
+.who b{color:var(--ink);font-weight:500}
+.fn{font-size:14px;color:var(--mute);line-height:1.5;margin-top:8px}
+.lab{font-size:15px;color:var(--sub);margin:0 0 10px;font-weight:500}
+/* tags */
+.t{display:inline-block;font-size:12.5px;font-weight:500;padding:1px 7px;border-radius:5px;vertical-align:2px;margin-left:6px;line-height:1.5;white-space:nowrap}
+.t.r{background:var(--trbg);color:var(--tr)}.t.v{background:var(--tvbg);color:var(--tv)}
+/* anim */
+.a{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+.a.in{opacity:1;transform:none}
+.a.l{transform:translateX(-30px)}.a.l.in{transform:none}
+.a.z{transform:scale(.85)}.a.z.in{transform:none}
+.bar{height:14px;background:var(--soft);border-radius:7px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--red);border-radius:7px;transition:width 1.2s cubic-bezier(.2,.7,.2,1) .2s}
+.a.in .bar i,.bar.a.in i{width:var(--w)}
+@media (prefers-reduced-motion:reduce){.a,.slide,.bar i,#bar{transition:none!important}.a{opacity:1;transform:none}}
+/* table */
+.tb{width:100%;border-collapse:collapse;font-size:18px}
+.tb th{text-align:left;font-weight:500;color:var(--sub);font-size:15px;border-bottom:2px solid var(--ink);padding:8px 12px}
+.tb td{border-bottom:1px solid var(--line);padding:10px 12px;vertical-align:top;line-height:1.45}
+.tb td.h{font-weight:700;white-space:nowrap}
+.tb .rt{text-align:right;font-family:var(--num);font-weight:700}
+.tb tr.tot td{border-bottom:none;border-top:2px solid var(--ink);font-weight:700}
+.tb.sm{font-size:16px}.tb.sm td{padding:8px 10px}
+/* cards */
+.k{background:var(--soft);border-radius:14px;padding:18px 22px}
+.k .l{font-size:15px;color:var(--sub);margin-bottom:8px}
+.k .n{font-family:var(--num);font-size:54px;font-weight:800;letter-spacing:-.02em;line-height:1}
+.k .n small{font-family:var(--sans);font-size:22px;font-weight:700;margin-left:4px}
+.k .d{font-size:15px;color:var(--sub);margin-top:8px;line-height:1.4}
+.neg{color:var(--redk)}
+.chip{display:inline-block;font-size:15px;font-weight:500;padding:4px 12px;border-radius:999px}
+.cg{background:var(--gbg);color:var(--g)}.cb{background:var(--bbg);color:var(--b)}.ck{background:var(--kchip);color:#E0B95E}.cp{background:var(--pbg);color:var(--p)}.cr{background:var(--redbg);color:var(--redk)}
+p{margin:0}
+ul.ls{margin:0;padding:0;list-style:none}
+ul.ls li{position:relative;padding-left:18px;margin:0 0 8px;font-size:18px;line-height:1.45}
+ul.ls li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--red)}
+/* map */
+.map{position:relative;border:1.5px solid var(--line);border-radius:14px;background:var(--soft)}
+.map .ax{position:absolute;font-size:13px;color:var(--mute)}
+.map .vl{position:absolute;left:50%;top:14px;bottom:14px;border-left:1px dashed var(--line)}
+.map .hl{position:absolute;top:50%;left:14px;right:14px;border-top:1px dashed var(--line)}
+.dot{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:7px;font-size:14px;white-space:nowrap;color:var(--sub)}
+.dot i{width:14px;height:14px;border-radius:50%;background:var(--mute);flex:none}
+.dot.us{color:var(--redk);font-weight:700;font-size:16px}.dot.us i{width:24px;height:24px;background:var(--red);box-shadow:0 0 0 6px var(--redbg)}
+/* red slide bits */
+.red .wchip{display:inline-block;font-size:16px;padding:5px 14px;border-radius:999px;border:1.5px solid rgba(255,255,255,.7);color:#fff}
+.arrow{color:var(--mute);font-size:22px;display:flex;align-items:center;justify-content:center}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+body{margin:0;padding-top:calc(56px + env(safe-area-inset-top,0px));background:var(--paper);font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.num{font-family:var(--num)}
+#top{position:fixed;top:0;left:0;right:0;z-index:50;height:calc(56px + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) 24px 0;display:flex;align-items:center;gap:22px;background:var(--paper);background:color-mix(in srgb,var(--paper) 88%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:49;background:var(--paper)}
+.brand{display:flex;align-items:center;text-decoration:none;color:var(--ink);font-family:var(--num);font-weight:800;font-size:20px;letter-spacing:.01em}
+.brand span{color:var(--red);font-weight:900;margin-right:2px}
+#chap{display:flex;gap:4px;flex:1;overflow:hidden}
+#chap a{font-size:13.5px;text-decoration:none;color:var(--sub);padding:6px 11px;border-radius:999px;white-space:nowrap;transition:background .25s,color .25s}
+#chap a:hover{background:var(--soft)}
+#chap a.on{background:var(--ink);color:var(--paper);font-weight:700}
+#who{font-size:13.5px;font-weight:700;color:var(--redk);white-space:nowrap}
+#keys{font-size:12px;color:var(--mute);white-space:nowrap}
+#prog{position:fixed;left:0;right:0;top:calc(56px + env(safe-area-inset-top,0px));height:3px;z-index:50}
+#prog i{display:block;height:100%;width:0;background:var(--red)}
+@media (max-width:1100px){#keys{display:none}}
+@media (max-width:860px){#chap{display:none}}
+#page{width:1600px;margin:0}
+.sec{position:relative;min-height:900px;padding:88px 80px 72px;display:flex;flex-direction:column}
+.sec.tall{min-height:1040px}
+.sec+.sec{border-top:1px solid var(--line)}
+.sec.red{background:var(--red);color:#fff;border-top:none}
+.chap+.sec,.sec.red+.sec{border-top:none}
+.chap{position:relative;min-height:560px;padding:110px 80px 90px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;background:var(--soft)}
+.chap .big{position:absolute;right:30px;bottom:-110px;font-family:var(--num);font-weight:900;font-size:560px;line-height:1;color:transparent;-webkit-text-stroke:3px var(--red);opacity:.28;pointer-events:none}
+.chap .kk{font-size:18px;font-weight:700;color:var(--redk);display:flex;align-items:center;gap:10px}
+.chap .kk::before{content:"";width:40px;height:3px;background:var(--red)}
+.chap h2{font-size:92px;letter-spacing:-.04em;margin:14px 0 18px;line-height:1.05}
+.chap .q{font-size:28px;color:var(--sub);max-width:900px;line-height:1.4}
+.chap .meta{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap}
+.chap .meta span{font-size:15px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--sub)}
+.chap .meta span.w{background:var(--ink);color:var(--paper);border-color:var(--ink);font-weight:700}
+.live{font-size:12.5px;font-weight:800;letter-spacing:.06em;color:#fff;background:var(--red);border-radius:6px;padding:4px 10px;margin-left:auto;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.live::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.2}}
+.btn{font:inherit;font-size:15px;font-weight:700;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:10px 20px;cursor:pointer;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn.red{background:var(--red);border-color:var(--red);color:#fff}
+.btn.ghost{background:transparent;display:block}
+.btn:disabled{opacity:.4;cursor:default}
+.btn:focus-visible,.tabs button:focus-visible,.seg2 button:focus-visible,.alg button:focus-visible,.dot[data-c]:focus-visible,.ig button:focus-visible,#chap a:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.kgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.kc{background:var(--soft);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.kc span{font-size:14px;color:var(--sub)}.kc b{font-family:var(--num);font-size:36px;font-weight:900;line-height:1.1}.kc i{font-style:normal;font-size:13px;color:var(--mute)}
+.kc.hi{background:var(--redbg)}.kc.big b{font-size:32px}
+.kbars{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.kb{display:grid;grid-template-columns:130px 1fr 60px;gap:10px;align-items:center;font-size:14.5px}
+.kb .bar{position:relative;height:12px;overflow:visible}
+.kb .bar i{transition:width .4s}
+.kb .bar em{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink)}
+.dot[data-c]{cursor:pointer}
+.dot.sel i{box-shadow:0 0 0 7px rgba(244,49,66,.25);background:var(--red)}
+.dot[data-c]:hover{color:var(--ink)}
+.posinfo{margin-top:10px;font-size:15px;line-height:1.5;color:var(--sub);min-height:86px}
+.posinfo b{display:block;color:var(--ink);font-size:17px;margin-bottom:2px}
+.posinfo.flash{animation:pop .4s both}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}}
+.pet svg,.av svg{width:100%;height:100%;display:block}
+.cover-float{position:absolute;right:80px;bottom:52px;display:flex;gap:12px}
+.cover-float .pet{width:66px;height:66px;background:rgba(255,255,255,.95);border-radius:50%;padding:6px;animation:bob 3s ease-in-out infinite}
+.cover-float .pet:nth-child(2){animation-delay:.5s}.cover-float .pet:nth-child(3){animation-delay:1s}.cover-float .pet:nth-child(4){animation-delay:1.5s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:14px;opacity:.85;animation:bob 2.2s ease-in-out infinite}
+a.toc{color:inherit;text-decoration:none;transition:background .2s,padding .2s}
+a.toc:hover{background:var(--soft);padding-left:20px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.live::before,.cover-float .pet,.hint,.seal,.st i,.spin,.rbar i,.r1,.r2,.r3,.prod,.rc,.ug,.cm,.ad,.posinfo.flash{animation:none!important}.r1{opacity:1}.rbar i{width:100%}}
+</style>
+</head>
+<body>
+<header id="top"><a class="brand" href="#s1"><span>11</span>PET</a><nav id="chap" aria-label="장 이동"><a href="#c1">01 신사업 정의</a><a href="#c2">02 외부 환경</a><a href="#c3">03 내부 분석</a><a href="#c4">04 차별화</a><a href="#c5">05 마케팅 소구점</a><a href="#c6">06 달성 방안</a><a href="#a1">부록</a></nav><span id="who"></span><span id="keys">← → 키로 이동 · F 전체화면</span></header>
+<div id="prog"><i></i></div>
+<main id="page">
+<section id="s1" class="sec red" data-f="G" data-who="총괄" data-red="1">
+  <div style="display:flex;justify-content:space-between;font-size:18px;opacity:.9" class="a"><span>기술마케팅 중간고사 팀프로젝트</span><span>2026. 10. 31</span></div>
+  <div style="flex:1;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center">
+    <div>
+      <p class="a" style="font-size:21px;margin-bottom:22px;opacity:.95">펫 케어 서비스 및 AI 기술을 커머스로 시장에 확산시키는 기술마케팅 전략</p>
+      <h1 class="a" style="font-size:100px;line-height:1.08;letter-spacing:-.04em;margin:0 0 30px;font-weight:700">11번가 안의<br>펫 케어 백화점</h1>
+      <div class="a" style="display:flex;align-items:center;gap:18px">
+        <div style="display:flex;align-items:center;background:#fff;color:var(--red);border-radius:16px;padding:8px 18px 8px 14px;gap:6px">
+          <span class="num" style="font-size:46px;font-weight:900;letter-spacing:-.04em;line-height:1">11</span><span class="num" style="font-size:40px;font-weight:800;letter-spacing:.02em;line-height:1">PET</span>
+        </div>
+        <span style="font-size:18px;opacity:.9">AI 펫 케어 커머스</span>
+      </div>
+      <p class="a" style="font-size:25px;margin-top:34px;font-weight:500">할인 대신 우리 아이 데이터와 AI로 고객을 붙잡는다</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;align-self:center">
+      <div class="a z" style="background:rgba(255,255,255,.12);border:1.5px dashed rgba(255,255,255,.7);border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;font-size:22px"><span><b class="num">4F</b>&nbsp; 생활 케어관</span><span style="opacity:.8;font-size:17px">2차 연도</span></div>
+      <div class="a z" style="background:#1D1C21;color:#E0B95E;border-radius:12px;padding:18px 22px;font-size:22px"><b class="num">3F</b>&nbsp; 프리미엄관</div>
+      <div class="a z" style="background:#fff;color:#2459C2;border-radius:12px;padding:18px 22px;font-size:22px"><b class="num">2F</b>&nbsp; 건강 케어관</div>
+      <div class="a z" style="background:#fff;color:#23935A;border-radius:12px;padding:18px 22px;font-size:22px"><b class="num">1F</b>&nbsp; 큐레이션 식음료관</div>
+      <div class="a" style="border-top:2px solid rgba(255,255,255,.6);padding-top:12px;font-size:16px;opacity:.85">모든 층을 ‘펫 프로필 추천 엔진’과 ‘이미지 AI 케어 분석’이 연결</div>
+    </div>
+  </div>
+  <div class="a" style="font-size:17px;opacity:.9">발표 A · B · C · D</div>
+  <div class="cover-float a"><span class="pet" data-pet="dog" data-c="#E8B77A"></span><span class="pet" data-pet="cat" data-c="#9A9A9A"></span><span class="pet" data-pet="dog" data-c="#D8D0C2"></span><span class="pet" data-pet="cat" data-c="#C98B5B"></span></div>
+  <div class="hint">↓ 스크롤하거나 → 키로 넘기기</div>
+</section>
+
+<section id="s2" class="sec" data-f="G" data-who="총괄">
+  <h2 class="tt a" style="margin-top:6px">목차</h2><p class="a" style="font-size:17px;color:var(--sub);margin:-12px 0 0">항목을 누르면 해당 장으로 이동합니다. ▶ 표시가 있는 곳은 직접 조작할 수 있는 데모입니다</p>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+    <a class="toc a l" href="#c1"><span class="num">01</span><b>신사업 정의</b><p>기술마케팅의 정의, 기술·시장 불확실성</p></a>
+    <a class="toc a l" href="#c2"><span class="num">02</span><b>외부 환경 분석</b><p>PEST, 고객 Needs(마켓 센싱·House of Quality), 5 Force, SWOT</p></a>
+    <a class="toc a l" href="#c3"><span class="num">03</span><b>내부 분석 및 전략 방향</b><p>성과 목표, Portfolio(BCG·Ansoff), 기술수용주기·캐즘, STP</p></a>
+    <a class="toc a l" href="#c4"><span class="num">04</span><b>차별화 방향</b><p>제품(관 구성), 서비스(핵심 서비스 3종), 기술(추천 엔진·이미지 AI)</p></a>
+    <a class="toc a l" href="#c5"><span class="num">05</span><b>마케팅 소구점</b><p>가격 전략, 프로모션, 고객과의 소통, 유통</p></a>
+    <a class="toc a l" href="#c6"><span class="num">06</span><b>달성 방안</b><p>조직 구성, 외부와의 협력, 기술·사업 로드맵과 리스크</p></a>
+  </div>
+  <style>.toc{display:grid;grid-template-columns:110px 420px 1fr 40px;align-items:center;gap:20px;border-bottom:1px solid var(--line);padding:19px 8px}.toc:first-child{border-top:2px solid var(--ink)}.toc::after{content:"→";color:var(--mute);font-size:22px;justify-self:end}.toc span{font-size:38px;font-weight:900;color:var(--red)}.toc b{font-size:28px}.toc p{font-size:19px;color:var(--sub)}</style>
+</section>
+
+<section id="c1" class="chap" data-f="0F" data-who="총괄"><span class="big">01</span><div class="kk a">CHAPTER 01</div><h2 class="a">신사업 정의</h2><p class="q a">무엇을 시장에 확산시키나?</p><div class="meta a"><span class="w">발표 총괄</span><span>기술마케팅의 정의</span><span>기술·시장 불확실성</span></div></section>
+
+<section id="s3" class="sec" data-f="0F" data-who="총괄">
+  <div class="hd"><span class="tool">신사업 정의</span><span class="tool k">기술마케팅의 정의(1강), 기술·시장 불확실성(5강)</span></div>
+  <h2 class="tt a">11PET이 시장에 확산시킬 것은 ‘펫 케어 서비스와 AI 기술’이다</h2>
+  <div class="body" style="grid-template-columns:1.15fr 1fr;gap:30px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="a" style="background:#1D1C21;color:#F1F0F4;border-radius:14px;padding:16px 22px"><span style="font-size:14px;color:#C9C6D2">기술마케팅 = 기술을 시장에 소개하고 확산시키는 활동 (1강)</span><p style="font-size:22px;font-weight:700;margin-top:6px;line-height:1.4">펫 케어 서비스 및 AI 기술을<br><span style="color:#FF6B78">커머스</span>로 시장에 확산시킨다</p></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="k a" style="border-top:5px solid var(--red)"><div class="l" style="color:var(--redk);font-weight:700">핵심 기술 ①</div><b style="font-size:21px">펫 프로필 케어 추천 엔진</b><p style="font-size:15.5px;color:var(--sub);line-height:1.45;margin-top:6px">품종·나이·체중·알레르기로 먹이·건강·위생·생활 케어를 맞춤 추천하고 바꿀 시기를 예측</p></div>
+        <div class="k a" style="border-top:5px solid var(--b)"><div class="l" style="color:var(--b);font-weight:700">핵심 기술 ②</div><b style="font-size:21px">이미지 AI 케어 분석</b><p style="font-size:15.5px;color:var(--sub);line-height:1.45;margin-top:6px">사진 한 장으로 상태를 읽어 케어 정보를 제공. 1차 배변, 2차 체형·피부·털</p></div>
+      </div>
+      <div class="k a"><div class="l" style="font-weight:700">펫 케어의 범위</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px"><span class="chip cg">먹이 케어</span><span class="chip cb">건강 케어</span><span class="chip cr">위생·미용 케어</span><span class="chip ck">생활 케어(산책·호텔)</span><span class="chip cp">보험·병원 연결</span></div>
+        <p style="font-size:15.5px;color:var(--sub);line-height:1.45;margin-top:10px">왜 커머스인가: 기술만으로는 돈을 받기 어렵다. 매일 쓰는 쇼핑 앱에 얹으면 기술이 빨리 퍼지고, 수익은 케어 상품으로 회수한다</p></div>
+    </div>
+    <div style="display:flex;flex-direction:column">
+      <p class="lab a">기술·시장 불확실성에 따른 마케팅 유형 (5강)</p>
+      <div class="a" style="flex:1;display:grid;grid-template-columns:44px 1fr 1fr;grid-template-rows:1fr 1fr 34px;gap:8px">
+        <div class="ah" style="writing-mode:vertical-rl">기술 불확실성 높음</div>
+        <div class="uq"><b>Better Mousetrap</b><p>더 나은 방법임을 증명</p><span class="chip cr">펫 프로필 추천 엔진</span></div>
+        <div class="uq" style="background:var(--red);color:#fff"><b>High-Tech 마케팅</b><p style="color:rgba(255,255,255,.9)">초기 고객부터 공략, 캐즘 전략 필요</p><span class="chip" style="background:#fff;color:var(--red)">이미지 AI 케어 분석</span></div>
+        <div class="ah" style="writing-mode:vertical-rl">낮음</div>
+        <div class="uq"><b>Low-Tech 마케팅</b><p>전통적 마케팅 (가격·유통)</p><span class="chip" style="background:var(--paper);border:1px solid var(--line)">사료·용품 판매</span></div>
+        <div class="uq"><b>High-Fashion 마케팅</b><p>취향·반응이 불확실 → 체험</p><span class="chip cg">사료 샘플러 10종</span></div>
+        <div></div><div class="ah">시장 불확실성 낮음</div><div class="ah">높음</div>
+      </div>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>서비스마다 마케팅 방식을 다르게 한다. 판매는 전통 마케팅, 추천 엔진은 효과 증명, 이미지 AI는 캐즘 전략으로 확산</span></div>
+  <style>.uq{background:var(--soft);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;justify-content:center}.uq b{font-size:20px}.uq p{font-size:15px;color:var(--sub)}.uq .chip{align-self:flex-start;font-size:14px;font-weight:700}.ah{display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--sub);font-weight:500}</style>
+</section>
+
+<section id="c2" class="chap" data-f="1F" data-who="A"><span class="big">02</span><div class="kk a">CHAPTER 02</div><h2 class="a">외부 환경 분석</h2><p class="q a">시장은 어디로 가고, 보호자는 무엇에 힘들어하나?</p><div class="meta a"><span class="w">발표 A</span><span>PEST</span><span>고객 Needs·House of Quality</span><span>5 Force ▶</span><span>SWOT</span></div></section>
+
+<section id="s4" class="sec" data-f="1F" data-who="A">
+  <div class="hd"><span class="tool">외부 환경 분석</span><span class="tool k">거시환경 — PEST + 법(Legal)</span></div>
+  <h2 class="tt a">반려동물은 ‘키우는 동물’에서 ‘가족’이 되었다</h2>
+  <div class="body c32">
+    <table class="tb a">
+      <thead><tr><th style="width:110px">구분</th><th>환경 변화</th><th style="width:280px">시사점</th></tr></thead>
+      <tbody>
+      <tr><td class="h">P 정치</td><td>정부 ‘반려동물 연관산업 육성대책’(2023. 8), 펫보험 활성화 국정과제, 진료비 부가세 면제 확대</td><td>펫 케어·보험 시장에 정책 순풍</td></tr>
+      <tr><td class="h">E 경제</td><td>반려동물 산업 1.9조(2015) → 3.0조(2020) → 6.0조(2027 전망), 양육비 중 식비 비중 약 50%</td><td>시장은 크지만 절반이 사료 같은 범용 상품</td></tr>
+      <tr><td class="h">S 사회</td><td>반려가구 552만(전체의 25.7%), 반려인 약 1,500만 명</td><td>‘가족’ 소비 → 신뢰와 건강을 중시</td></tr>
+      <tr><td class="h">T 기술</td><td>가정용 진단키트, 이미지 인식 AI, 반려동물 정보 기반 추천 서비스 확산</td><td>데이터 기반 케어 서비스가 가능해짐</td></tr>
+      <tr><td class="h">L 법</td><td>개식용종식법(2024. 1), 사료관리법(사료 소분·재포장 규정), 수의사법(진단·처방 표현 제한)</td><td>사료 소분·AI 분석은 법률 검토가 먼저</td></tr>
+      </tbody>
+    </table>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="k a"><div class="l">국내 반려동물 산업 규모 (한국농촌경제연구원)</div>
+        <div style="display:flex;align-items:flex-end;gap:20px;margin-top:10px">
+          <div style="flex:1;text-align:center"><div class="num" style="font-weight:800;font-size:22px">1.9조</div><div class="grow" style="height:48px;background:var(--line);border-radius:8px 8px 0 0;margin-top:6px"></div><div class="fn">2015</div></div>
+          <div style="flex:1;text-align:center"><div class="num" style="font-weight:800;font-size:22px">3.0조</div><div class="grow" style="height:76px;background:var(--line);border-radius:8px 8px 0 0;margin-top:6px"></div><div class="fn">2020</div></div>
+          <div style="flex:1;text-align:center"><div class="num" style="font-weight:800;font-size:22px;color:var(--redk)">6.0조</div><div class="grow" style="height:150px;background:var(--red);border-radius:8px 8px 0 0;margin-top:6px"></div><div class="fn">2027 전망</div></div>
+        </div>
+        <div class="d">2020년 이후 연평균 약 10% 성장</div></div>
+      <div class="k a"><div class="l">펫보험 가입률</div>
+        <div style="display:grid;grid-template-columns:60px 1fr 50px;gap:8px 10px;align-items:center;font-size:15px">
+          <span>2020</span><div class="bar"><i style="--w:28%"></i></div><b class="num">0.4%</b>
+          <span>2022</span><div class="bar"><i style="--w:64%"></i></div><b class="num">0.9%</b>
+          <span>2023</span><div class="bar"><i style="--w:100%"></i></div><b class="num">1.4%</b>
+        </div><div class="d">아직 1%대 → 성장 여지가 큼</div></div>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>기회는 사료의 ‘양’이 아니라 건강·맞춤의 ‘질’에 있다. 단, 법 규정이 서비스 설계를 먼저 정한다</span></div>
+</section>
+
+<section id="s5" class="sec" data-f="1F" data-who="A">
+  <div class="hd"><span class="tool">외부 환경 분석</span><span class="tool k">고객 Needs — 마켓 센싱, House of Quality(6강)</span></div>
+  <h2 class="tt a">보호자는 싼 상품보다 ‘우리 아이에게 맞는 케어’를 찾지 못해 힘들다</h2>
+  <div class="body" style="grid-template-columns:1fr 1.1fr;gap:28px">
+    <div>
+      <p class="lab a">가상 설문: 반려견·반려묘 보호자 중 온라인 구매 경험자 300명</p>
+      <div style="display:flex;flex-direction:column;gap:15px;margin-top:8px">
+        <div class="a"><div style="display:flex;justify-content:space-between;font-size:18px;margin-bottom:7px"><span>가장 큰 어려움: “우리 아이에게 맞는지 모르겠다”</span><b class="num" data-count="41" data-suf="%">41%</b></div><div class="bar"><i style="--w:41%"></i></div><p class="fn">가격 27%, 배송 18%, 기타 14%</p></div>
+        <div class="a"><div style="display:flex;justify-content:space-between;font-size:18px;margin-bottom:7px"><span>전문가가 검증했다면 더 낼 의향 (평균 +12%)</span><b class="num" data-count="57" data-suf="%">57%</b></div><div class="bar"><i style="--w:57%"></i></div></div>
+        <div class="a"><div style="display:flex;justify-content:space-between;font-size:18px;margin-bottom:7px"><span>건강·위생을 정기적으로 관리하고 싶다</span><b class="num" data-count="64" data-suf="%">64%</b></div><div class="bar"><i style="--w:64%"></i></div></div>
+        <div class="a"><div style="display:flex;justify-content:space-between;font-size:18px;margin-bottom:7px"><span>당일·익일 배송이 매우 중요하다</span><b class="num" data-count="71" data-suf="%">71%</b></div><div class="bar"><i style="--w:71%"></i></div></div>
+      </div>
+      <div class="a" style="border-left:5px solid var(--red);background:var(--soft);padding:10px 16px;font-size:15.5px;line-height:1.5;margin-top:14px">지금의 쇼핑몰 검색: 품종·나이·체중이 달라도 같은 결과가 나와 보호자가 직접 찾아야 한다</div>
+    </div>
+    <div style="display:flex;flex-direction:column">
+      <p class="lab a">House of Quality — 고객 Needs를 기술 요구사항으로 번역</p>
+      <table class="tb a hoq"><thead><tr><th>고객 Needs</th><th>추천 엔진</th><th>상품 정보 표준</th><th>샘플러 반응 데이터</th><th>이미지 AI</th><th>배송 예측</th></tr></thead><tbody>
+        <tr><td class="h">신뢰 (누가 검증했나)</td><td>○</td><td>●</td><td>●</td><td>○</td><td></td></tr>
+        <tr><td class="h">선택 부담 해소</td><td>●</td><td>●</td><td>●</td><td></td><td></td></tr>
+        <tr><td class="h">건강·위생 케어 관리</td><td>●</td><td></td><td></td><td>●</td><td>○</td></tr>
+        <tr><td class="h">빠른 배송</td><td></td><td></td><td></td><td></td><td>●</td></tr>
+        <tr class="tot"><td>중요도 합계</td><td class="num">높음</td><td class="num">높음</td><td class="num">높음</td><td class="num">중간</td><td class="num">중간</td></tr>
+      </tbody></table>
+      <p class="fn a">● 강한 관계 ○ 약한 관계. 배송은 이미 있는 역량이므로 신규 개발은 추천 엔진·상품 정보 표준·반응 데이터에 먼저 집중</p>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>Needs 1~3위를 동시에 푸는 기술은 ‘추천 엔진 + 상품 정보 표준’. 이것이 첫 개발 과제다</span></div>
+  <style>.hoq th,.hoq td{text-align:center;font-size:16px}.hoq th:first-child,.hoq td:first-child{text-align:left}.hoq td{font-size:22px;color:var(--redk)}.hoq td.h{font-size:16px;color:var(--ink)}.hoq tr.tot td{font-size:15px;color:var(--ink)}</style>
+</section>
+
+<section id="s6" class="sec" data-f="1F" data-who="A">
+  <div class="hd"><span class="tool">외부 환경 분석</span><span class="tool k">경쟁 구조 — 5 Force, 포지셔닝 맵</span></div>
+  <h2 class="tt a">경쟁은 치열한데, 확실한 1등은 없다</h2>
+  <div class="body c2">
+    <div style="display:grid;grid-template-columns:1fr 1.15fr 1fr;grid-template-rows:1fr 1.25fr 1fr;gap:12px">
+      <div></div>
+      <div class="k a f5"><div class="fh"><span>신규 진입</span><span class="chip cb">중</span></div><p>쇼핑몰 진입은 쉽지만 물류·고객 확보가 장벽</p></div>
+      <div></div>
+      <div class="k a f5"><div class="fh"><span>공급자</span><span class="chip cr">강</span></div><p>대형 사료 브랜드가 가격을 통제</p></div>
+      <div class="a z" style="background:var(--red);color:#fff;border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;justify-content:center"><div class="fh" style="color:#fff"><span>기존 경쟁</span><span class="chip" style="background:#fff;color:var(--red)">강</span></div><p style="font-size:15.5px;line-height:1.45;margin-top:6px">쿠팡(로켓펫닥터), 펫프렌즈, 핏펫, 종합몰 펫 카테고리</p><p style="font-size:15px;line-height:1.45;margin-top:6px;border-top:1px solid rgba(255,255,255,.4);padding-top:6px">펫프렌즈는 재구매율 85%에도 영업이익률 0.4%(2025), 어바웃펫은 매각 추진. 종합몰은 펫 전용 경험이 약하다</p></div>
+      <div class="k a f5"><div class="fh"><span>구매자</span><span class="chip cr">강</span></div><p>가격 비교가 쉬워 최저가로 쏠림</p></div>
+      <div></div>
+      <div class="k a f5"><div class="fh"><span>대체재</span><span class="chip cb">중</span></div><p>동물병원·브랜드 자사몰·반려인 커뮤니티</p></div>
+      <div></div>
+    </div>
+    <div style="display:flex;flex-direction:column">
+      <p class="lab a">포지셔닝 맵 (공개된 서비스 특징 기준 정성 배치) <span class="live" style="display:inline-flex;margin-left:8px">클릭</span></p>
+      <div class="map a" style="flex:1">
+        <div class="vl"></div><div class="hl"></div>
+        <span class="ax" style="left:18px;bottom:8px">다 판다</span><span class="ax" style="right:18px;bottom:8px">우리 아이에 맞춰 골라준다</span>
+        <span class="ax" style="left:18px;top:10px">케어·데이터 서비스</span><span class="ax" style="left:18px;top:50%;margin-top:6px">상품 판매 중심</span>
+        <div class="dot a" data-c="mall" style="left:24%;top:76%"><i></i>종합몰 펫 카테고리</div>
+        <div class="dot a" data-c="cp" style="left:30%;top:36%"><i></i>쿠팡 로켓펫닥터 (설문형 추천)</div>
+        <div class="dot a" data-c="pf" style="left:56%;top:68%"><i></i>펫프렌즈 (펫 전문몰)</div>
+        <div class="dot a" data-c="fp" style="left:68%;top:32%"><i></i>핏펫 (진단키트)</div>
+        <div class="dot a" data-c="vet" style="left:78%;top:80%"><i></i>동물병원</div>
+        <div class="dot us a z" data-c="us" style="left:82%;top:15%"><i></i>11PET</div>
+      </div>
+      <div class="posinfo a" id="posInfo"><b>▶ 점을 눌러 보세요</b><p>경쟁사별 공개 정보를 확인할 수 있습니다</p></div>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>최저가 사료로는 싸우지 않는다. 비어 있는 “맞춤 케어 + 데이터” 자리를 선점한다</span></div>
+  <style>.f5{display:flex;flex-direction:column;justify-content:center}.f5 p{font-size:15.5px;color:var(--sub);line-height:1.45;margin-top:6px}.fh{display:flex;justify-content:space-between;align-items:center;font-size:21px;font-weight:700}.fh .chip{font-size:14px}</style>
+</section>
+
+<section id="s7" class="sec" data-f="1F" data-who="A">
+  <div class="hd"><span class="tool">외부 환경 분석</span><span class="tool k">SWOT 분석 → 전략 도출(SO·WO·ST·WT)</span></div>
+  <h2 class="tt a">고객과 배송망은 있다. 부족한 건 데이터와 전용 경험이다</h2>
+  <div class="body c2">
+    <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px">
+      <div class="k a sw"><b class="num" style="color:var(--g)">S</b><ul class="ls"><li>넓은 펫 상품 구색과 가격 경쟁력</li><li>당일·익일 배송 인프라</li><li>대형 플랫폼의 방문 고객과 판매자</li></ul></div>
+      <div class="k a sw"><b class="num neg">W</b><ul class="ls"><li>반려동물 정보(펫 프로필)를 받고 있지 않음</li><li>상품 정보가 품종·나이별로 정리돼 있지 않아 검색 만족도 낮음</li><li>펫 전용 화면·정기배송 없음</li></ul></div>
+      <div class="k a sw"><b class="num" style="color:var(--b)">O</b><ul class="ls"><li>확실한 1등 사업자 부재 (펫프렌즈 이익률 0.4%, 어바웃펫 매각)</li><li>시장 6조(2027) 성장</li><li>펫보험 비교 서비스 개방(2024)</li></ul></div>
+      <div class="k a sw"><b class="num" style="color:var(--gold)">T</b><ul class="ls"><li>쿠팡 로켓펫닥터 확대(2024. 11 개편)</li><li>사료관리법·수의사법 규제</li><li>사료 가격 경쟁</li></ul></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <p class="lab a">SWOT에서 도출한 전략</p>
+      <div class="a tw"><span class="chip cg">SO</span><p>대형 플랫폼의 방문 고객에 펫 전용관을 더해, 1등이 없는 시장을 선점</p></div>
+      <div class="a tw"><span class="chip cb">WO</span><p>펫 프로필 등록과 상품 정보 정리부터 시작해 맞춤 추천 기반을 만든다</p></div>
+      <div class="a tw"><span class="chip ck">ST</span><p>가격 대신 체험(샘플러)·건강 서비스로 경쟁, 동물병원과는 협력</p></div>
+      <div class="a tw"><span class="chip cr">WT</span><p>법률 검토를 먼저 하고, 안 되면 대안(브랜드 공식 체험팩)으로 바꾼다</p></div>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>전략 방향 3가지 — ① 관 안의 관 ② 펫 프로필 데이터로 고객 붙잡기 ③ 브랜드·스타트업과 함께 성장</span></div>
+  <style>.sw{position:relative;padding-top:16px}.sw>b{position:absolute;right:18px;top:6px;font-size:48px;font-weight:900;opacity:.9}.sw ul.ls li{font-size:16.5px;margin-bottom:7px;padding-right:40px}.tw{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center;border-bottom:1px solid var(--line);padding:12px 0;font-size:18.5px;line-height:1.45}.tw .chip{text-align:center;font-family:var(--num);font-weight:800}</style>
+</section>
+
+<section id="c3" class="chap" data-f="2F" data-who="B"><span class="big">03</span><div class="kk a">CHAPTER 03</div><h2 class="a">내부 분석 및 전략 방향</h2><p class="q a">무엇을 목표로, 누구에게 먼저 확산시키나?</p><div class="meta a"><span class="w">발표 B</span><span>성과 목표</span><span>KPI 시뮬레이터 ▶</span><span>Portfolio</span><span>캐즘 ▶</span><span>STP</span></div></section>
+
+<section id="s8" class="sec" data-f="2F" data-who="B">
+  <div class="hd"><span class="tool">내부 분석 및 전략 방향</span><span class="tool k">성과 목표 — KPI 트리</span></div>
+  <h2 class="tt a">가장 먼저 볼 숫자는 ‘펫 프로필 등록 고객 수’</h2>
+  <div class="body" style="grid-template-columns:390px 1fr;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="a z" style="background:var(--red);color:#fff;border-radius:16px;padding:20px 24px"><div style="font-size:16px;opacity:.9">핵심 선행 지표 · 2027년 목표</div><div class="num" style="font-size:72px;font-weight:900;line-height:1.05"><span data-count="50">50</span><span style="font-family:var(--sans);font-size:30px">만 명</span></div><div style="font-size:16px;opacity:.9">펫 프로필 등록 고객</div></div>
+      <div class="a" style="font-size:17px;line-height:1.55;color:var(--sub)">등록이 늘어야 추천이 정확해지고, 추천이 정확해야 다시 산다. 이 숫자가 오르지 않으면 나머지 전략도 작동하지 않는다</div>
+      <div class="k a"><div class="l">우리가 말하는 1등</div><div style="font-size:17px;line-height:1.5"><b>① 오픈마켓 중 펫 카테고리 1위</b><br><b>② 특정 세부 카테고리(예: 시니어 사료) 전체 1위</b><br><span style="color:var(--sub);font-size:15px">2년 안에 측정하고 도달할 수 있는 목표</span></div></div>
+    </div>
+    <div style="display:flex;flex-direction:column">
+      <table class="tb sm a"><thead><tr><th>지표</th><th style="text-align:right">2026 현재</th><th style="text-align:right">1차 (2027)</th><th style="text-align:right">2차</th><th style="text-align:right">3차</th></tr></thead><tbody>
+      <tr><td><b>1년 내 재구매율 (쿠폰 없이)</b></td><td class="rt" style="color:var(--mute)">—</td><td class="rt" style="color:var(--redk)">60%</td><td class="rt">70%</td><td class="rt">75%</td></tr>
+      <tr><td><b>펫 프로필 등록 고객</b></td><td class="rt" style="color:var(--mute)">없음</td><td class="rt" style="color:var(--redk)">50만</td><td class="rt">90만</td><td class="rt">130만</td></tr>
+      <tr><td>정기배송 가입 고객</td><td class="rt" style="color:var(--mute)">없음</td><td class="rt" style="color:var(--redk)">10만</td><td class="rt">18만</td><td class="rt">25만</td></tr>
+      <tr><td>사료 샘플러 → 본품 구매 전환율</td><td class="rt" style="color:var(--mute)">—</td><td class="rt" style="color:var(--redk)">30%</td><td class="rt">33%</td><td class="rt">35%</td></tr>
+      <tr><td>이미지 AI 분석 월 이용 / 케어 상품 구매 전환</td><td class="rt" style="color:var(--mute)">—</td><td class="rt" style="color:var(--redk)">10만 건 / 10%</td><td class="rt">20만 / 12%</td><td class="rt">30만 / 14%</td></tr>
+      <tr><td>타 카테고리 함께 구매율</td><td class="rt" style="color:var(--mute)">—</td><td class="rt">35%</td><td class="rt">45%</td><td class="rt">50%</td></tr>
+      <tr style="background:var(--soft)"><td><b>영업이익률</b></td><td class="rt" style="color:var(--mute)">—</td><td class="rt neg">-3%</td><td class="rt">+2%</td><td class="rt" style="color:var(--g)">+6%</td></tr>
+      </tbody></table>
+      <p class="fn a">가정: 재구매율은 쿠폰 없이 달성하는 목표라 펫프렌즈(85%)보다 낮게 설정, 등록 고객은 연 40만 명씩 증가. 1차 연도는 AI·샘플러·법률 검토 투자로 적자, 3차 연도에 영업이익률 +6% 도달</p>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>거래액보다 등록 고객 수를 먼저 관리한다. 매주 확인하는 지표로 두고, 나머지는 그 결과로 따라오게 설계한다</span></div>
+</section>
+
+<section id="s9" class="sec" data-f="2F" data-who="B">
+  <div class="hd"><span class="tool">내부 분석 및 전략 방향</span><span class="tool k">성과 목표 — 가정 검증</span><span class="live">LIVE 시뮬레이터</span></div>
+  <h2 class="tt a">가정이 바뀌면 결과도 바뀐다: KPI 시뮬레이터</h2>
+  <div class="body" style="grid-template-columns:460px 1fr;gap:36px">
+    <div class="k a ctl" id="kpiCtl">
+      <label>월 신규 펫 프로필 등록 <output data-o="m"></output><input type="range" min="1" max="8" step="0.1" value="4.2" data-k="m"></label>
+      <label>샘플러 → 본품 구매 전환율 <output data-o="sc"></output><input type="range" min="10" max="50" step="1" value="30" data-k="sc"></label>
+      <label>정기배송 가입률 (등록 고객 대비) <output data-o="sr"></output><input type="range" min="5" max="40" step="1" value="20" data-k="sr"></label>
+      <label>케어 박스 선택률 (정기배송 대비) <output data-o="br"></output><input type="range" min="5" max="50" step="1" value="20" data-k="br"></label>
+      <label>케어 박스 월 요금 <output data-o="pr"></output><input type="range" min="19900" max="39900" step="1000" value="26900" data-k="pr"></label>
+      <button type="button" class="btn" id="kpiReset">기본 가정으로 되돌리기</button>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="kgrid a">
+        <div class="kc"><span>연말 펫 프로필 등록</span><b data-r="reg"></b><i>목표 50만</i></div>
+        <div class="kc"><span>정기배송 가입</span><b data-r="subs"></b><i>목표 10만</i></div>
+        <div class="kc"><span>케어 박스 구독</span><b data-r="box"></b><i>목표 2만</i></div>
+        <div class="kc"><span>케어 박스 연 매출</span><b data-r="rev"></b><i>기본 약 65억</i></div>
+        <div class="kc"><span>1년 내 재구매율 (추정)</span><b data-r="rep"></b><i>목표 60%</i></div>
+        <div class="kc hi"><span>1차 연도 영업이익률 (추정)</span><b data-r="op"></b><i>기본 -3%</i></div>
+      </div>
+      <div class="k a" style="padding:14px 18px"><div class="l" style="font-weight:700">목표 대비 달성도</div><div id="kpiBars" class="kbars"></div></div>
+      <p class="fn a" style="margin:0">단순 가정 모델: 등록 = 월 등록 × 12, 정기배송 = 등록 × 가입률, 케어 박스 = 정기배송 × 선택률, 재구매율 = 40% + 가입률 × 0.6 + 전환율 × 0.27, 영업이익률은 기본값(-3%)에서 등록·가입률·전환율·박스 매출 변화만큼 가감</p>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>결과를 가장 크게 움직이는 가정은 ‘정기배송 가입률’. 그래서 등록 다음 관리 지표를 정기배송으로 둔다</span></div>
+</section>
+
+<section id="s10" class="sec" data-f="2F" data-who="B">
+  <div class="hd"><span class="tool">내부 분석 및 전략 방향</span><span class="tool k">Portfolio 분석 — BCG, Ansoff</span></div>
+  <h2 class="tt a">관마다 역할이 다르다: 돈 버는 관, 키우는 관, 미래의 관</h2>
+  <div class="body c2">
+    <div style="display:flex;flex-direction:column">
+      <p class="lab a">BCG 매트릭스 — 11PET 관별 목표 역할 (가정)</p>
+      <div class="map a" style="flex:1;background:var(--paper)">
+        <div class="vl"></div><div class="hl"></div>
+        <span class="ax" style="left:14px;top:12px">시장 성장률 높음</span><span class="ax" style="left:14px;bottom:30px">낮음</span>
+        <span class="ax" style="left:18px;bottom:8px">상대 점유율 높음</span><span class="ax" style="right:18px;bottom:8px">낮음</span>
+        <span class="ax" style="left:27%;top:42%;font-size:16px;opacity:.6">Star</span><span class="ax" style="left:76%;top:42%;font-size:16px;opacity:.6">Question Mark</span>
+        <span class="ax" style="left:23%;top:90%;font-size:16px;opacity:.6">Cash Cow</span><span class="ax" style="left:80%;top:90%;font-size:16px;opacity:.6">Dog</span>
+        <div class="bub a z" style="left:25%;top:70%;width:130px;height:130px;background:var(--gbg);color:var(--g)">1F 식음료관<br><small>반복구매로 현금 창출</small></div>
+        <div class="bub a z" style="left:30%;top:22%;width:104px;height:104px;background:var(--bbg);color:var(--b)">2F 건강 케어관<br><small>고성장 육성</small></div>
+        <div class="bub a z" style="left:68%;top:24%;width:100px;height:100px;background:var(--kchip);color:#E0B95E">3F 프리미엄<br><small>선택 투자</small></div>
+        <div class="bub a z" style="left:87%;top:32%;width:88px;height:88px;background:var(--pbg);color:var(--p)">4F 생활 케어<br><small>2차 연도</small></div>
+        <div class="bub a z" style="left:78%;top:72%;width:100px;height:100px;background:var(--soft);border:1.5px dashed var(--line);color:var(--mute)">최저가 사료<br><small>관 밖</small></div>
+      </div>
+      <p class="fn a">건강·위생 케어(영양제·검사)는 사료보다 성장이 빠르고, 보험·생활 서비스 시장은 이제 막 열리는 단계</p>
+    </div>
+    <div style="display:flex;flex-direction:column">
+      <p class="lab a">Ansoff 매트릭스 — 성장 경로</p>
+      <div style="flex:1;display:grid;grid-template-columns:70px 1fr 1fr;grid-template-rows:40px 1fr 1fr;gap:8px">
+        <div></div><div class="ah a">기존 상품</div><div class="ah a">새 상품·서비스</div>
+        <div class="ah a" style="writing-mode:vertical-rl">기존 고객</div>
+        <div class="k a an"><b>시장 침투</b><p>기존 펫 구매 고객에게 정기배송·월초 정기 할인 행사</p></div>
+        <div class="k a an us"><b><span class="stp">1</span>제품 개발</b><p>생애주기 캘린더, 사료 샘플러 10종 (2027)</p></div>
+        <div class="ah a" style="writing-mode:vertical-rl">새 고객</div>
+        <div class="k a an us"><b><span class="stp">2</span>시장 개발</b><p>동물병원·박람회에서 만난 보호자, 프리미엄 브랜드 고객</p></div>
+        <div class="k a an us"><b><span class="stp">3</span>다각화</b><p>이미지 AI 케어 분석, 생활 케어관(보험·병원·미용 예약) (2차)</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>1F가 버는 돈으로 2F를 키우고, 4F는 2차 연도에 연다. 성장은 제품 개발 → 시장 개발 → 다각화 순서</span></div>
+  <style>.bub{position:absolute;transform:translate(-50%,-50%);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:14.5px;font-weight:700;line-height:1.2;padding:6px}.bub small{font-size:11.5px;font-weight:400;margin-top:2px}.bub.a.z{transform:translate(-50%,-50%) scale(.6)}.bub.a.z.in{transform:translate(-50%,-50%)}.ah{display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--sub);font-weight:500}.an b{font-size:21px;display:flex;align-items:center;gap:8px}.an p{font-size:16px;color:var(--sub);margin-top:8px;line-height:1.45}.an.us{background:var(--redbg)}.an.us b{color:var(--redk)}.stp{font-family:var(--num);width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;font-size:15px;display:inline-flex;align-items:center;justify-content:center}</style>
+</section>
+
+<section id="s11" class="sec tall" data-f="2F" data-who="B">
+  <div class="hd"><span class="tool">내부 분석 및 전략 방향</span><span class="tool k">기술수용주기·캐즘, 볼링앨리·토네이도(5강)</span><span class="live">LIVE 애니메이션</span></div>
+  <h2 class="tt a">AI 케어 기술은 ‘먼저 쓸 사람’부터 공략해 캐즘을 넘는다</h2>
+  <div class="a" style="display:flex;align-items:center;gap:16px;margin-bottom:8px">
+    <button type="button" class="btn red" id="czPlay">▶ 재생</button>
+    <input type="range" id="czRange" min="0" max="36" step="0.1" value="0" style="flex:1" aria-label="출시 후 개월">
+    <span class="num" id="czMonth" style="font-size:22px;font-weight:800;width:110px;text-align:right">0개월</span>
+  </div>
+  <div class="a" style="display:grid;grid-template-columns:1fr 360px;gap:24px">
+    <div style="position:relative">
+      <svg viewBox="0 0 1060 300" style="width:100%;display:block" aria-label="기술수용주기 곡선">
+        <defs><clipPath id="czClip"><rect id="czRect" x="0" y="0" width="0" height="300"/></clipPath></defs>
+        <path id="czFill" d="M10 280 C 190 280, 270 50, 420 40 S 670 80, 790 190 S 960 280, 1050 280 Z" fill="#F43142" opacity=".85" clip-path="url(#czClip)"/>
+        <path d="M10 280 C 190 280, 270 50, 420 40 S 670 80, 790 190 S 960 280, 1050 280" fill="none" stroke="#94919E" stroke-width="3"/>
+        <line x1="10" y1="280" x2="1050" y2="280" stroke="#94919E" stroke-width="1.5"/>
+        <line x1="268" y1="20" x2="268" y2="285" stroke="#F43142" stroke-width="3" stroke-dasharray="8 7"/>
+        <text x="276" y="34" font-size="17" fill="#C4172A" font-weight="700">캐즘</text>
+        <g font-size="14" fill="#5B5866"><text x="40" y="298">혁신 수용자</text><text x="150" y="298">얼리어답터</text><text x="330" y="298">전기 다수</text><text x="610" y="298">후기 다수</text><text x="880" y="298">지각 수용자</text></g>
+        <g id="czTor" opacity="0" transform="translate(560 120)"><g class="spin"><path d="M-40 -30 Q0 -50 40 -30 M-30 -10 Q0 -26 30 -10 M-20 10 Q0 -2 20 10 M-10 28 Q0 20 10 28" stroke="#C4172A" stroke-width="4" fill="none" stroke-linecap="round"/></g></g>
+      </svg>
+      <div class="czst" id="czStage"><b>출시 전</b><p>재생을 누르거나 막대를 움직여 보세요</p></div>
+    </div>
+    <div class="k" style="display:flex;flex-direction:column;align-items:center;gap:8px">
+      <div class="l" style="font-weight:700;align-self:flex-start">볼링앨리: 핀이 연쇄로 쓰러진다</div>
+      <svg viewBox="0 0 300 250" style="width:100%" id="czPins" aria-label="볼링 핀"></svg>
+      <ol class="pinlg"><li><b>1</b> 노령견 보호자 (첫 핀)</li><li><b>2·3</b> 노령묘, 비만 관리</li><li><b>4~6</b> 알레르기, 입양 초기, 중성화기</li><li><b>7~10</b> 일반 보호자 (주류 시장)</li></ol>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px">
+    <div class="k a cz"><span class="cn">① 볼링앨리</span><b>첫 핀: 노령견(7세 이상) 보호자</b><p>건강 걱정이 크고, 매일 관찰이 필요하며, 지출 의향이 높다. 첫 핀이 쓰러지면 비슷한 고민을 가진 옆 시장으로 연쇄 확산</p></div>
+    <div class="k a cz"><span class="cn">② 완전 완비 제품</span><b>분석만으로는 안 산다</b><p>이미지 AI 분석(본원 제품) + 맞춤 케어 상품(기대 제품) + 정기배송(부가 제품) + 이상 신호 시 병원 연결(잠재 제품)</p></div>
+    <div class="k a cz"><span class="cn">③ 토네이도</span><b>실용주의자가 몰릴 때 1등이 된다</b><p>사진 한 장·결과 3초로 단순화·표준화, 앱·병원·박람회로 유통망 장악, 무료 분석으로 사용자 기반 확보</p></div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>캐즘은 ‘노령견 보호자’라는 첫 핀으로 넘는다. 분석은 무료로 열어 사용자 기반부터 확보한다</span></div>
+  <style>.czst{position:absolute;left:24px;top:56px;background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;max-width:330px;box-shadow:0 6px 20px rgba(0,0,0,.06)}.czst b{font-size:18px;color:var(--redk)}.czst p{font-size:14.5px;color:var(--sub);margin-top:4px;line-height:1.45}.pinlg{margin:0;padding:0;list-style:none;font-size:14px;color:var(--sub);align-self:stretch}.pinlg li{margin:3px 0}.pinlg b{display:inline-block;min-width:38px;color:var(--redk)}.pin{transition:transform .6s cubic-bezier(.3,.6,.3,1.4),opacity .6s;transform-box:fill-box;transform-origin:50% 100%}.pin.down{transform:rotate(80deg) translateX(10px);opacity:.35}.spin{animation:spin 1.2s linear infinite;transform-origin:0 0}@keyframes spin{to{transform:rotate(360deg)}}.cz{display:flex;flex-direction:column;gap:8px}.cz .cn{align-self:flex-start;background:var(--red);color:#fff;font-size:14px;font-weight:700;border-radius:999px;padding:4px 12px}.cz b{font-size:20px}.cz p{font-size:15.5px;color:var(--sub);line-height:1.5}</style>
+</section>
+
+<section id="s12" class="sec" data-f="2F" data-who="B">
+  <div class="hd"><span class="tool">내부 분석 및 전략 방향</span><span class="tool k">STP — 세분화, 타겟팅, 포지셔닝(6강)</span></div>
+  <h2 class="tt a">가격만 보는 고객은 일반 매장에, 건강을 챙기는 고객은 11PET으로</h2>
+  <div class="body c2">
+    <div style="display:flex;flex-direction:column">
+      <p class="lab a">세분화 ① 관심도 × 소비 성향 (반려가구 552만 기준, 가정)</p>
+      <div style="flex:1;display:grid;grid-template-columns:60px 1fr 1fr;grid-template-rows:34px 1fr 1fr;gap:8px">
+        <div></div><div class="ah a">가격 중시</div><div class="ah a">품질·건강 중시</div>
+        <div class="ah a" style="writing-mode:vertical-rl">관심 높음</div>
+        <div class="k a sg"><div class="num">20%</div><b>건강 관찰형</b><p>약 110만 가구<br>초기 시장(얼리어답터), 이미지 AI로 진입</p></div>
+        <div class="k a sg z" style="background:var(--red);color:#fff"><div class="num">25%</div><b>핵심 타겟</b><p style="color:rgba(255,255,255,.9)">약 138만 가구<br>주류 시장 교두보, 맞춤 케어</p></div>
+        <div class="ah a" style="writing-mode:vertical-rl">관심 낮음</div>
+        <div class="k a sg" style="background:var(--paper);border:1.5px dashed var(--line)"><div class="num" style="color:var(--mute)">40%</div><b>일반 매장 유지</b><p>약 221만 가구<br>최저가 사료는 관 밖</p></div>
+        <div class="k a sg"><div class="num">15%</div><b>확장 타겟</b><p>약 83만 가구<br>샘플러·캘린더로 진입</p></div>
+      </div>
+      <div class="a" style="margin-top:10px;display:grid;grid-template-columns:110px repeat(4,1fr);gap:6px;font-size:14px;text-align:center">
+        <div style="display:flex;align-items:center;font-weight:700;color:var(--sub);text-align:left">세분화 ②<br>생애주기</div>
+        <div class="lc">입양 초기<br><b>2~4개월</b></div><div class="lc">성장·중성화<br><b>6~12개월</b></div><div class="lc">성견·성묘<br><b>1~6세</b></div><div class="lc" style="background:var(--red);color:#fff">노령 · 첫 핀<br><b style="color:#fff">7세 이상</b></div>
+      </div>
+      <p class="fn a">생애주기가 바뀌는 시점마다 케어가 바뀐다 → 캘린더 알림으로 타겟팅. 노령 보호자가 캐즘을 넘는 첫 핀. 비중은 가상 설문을 바탕으로 한 가정</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <p class="lab a">포지셔닝 (고객이 느끼는 이미지 기준)</p>
+      <div class="map a" style="flex:1">
+        <div class="vl"></div><div class="hl"></div>
+        <span class="ax" style="left:18px;bottom:8px">가격 중심</span><span class="ax" style="right:18px;bottom:8px">맞춤·신뢰 중심</span>
+        <span class="ax" style="left:18px;top:10px">빠르고 편하다</span><span class="ax" style="left:18px;bottom:30px">느리고 번거롭다</span>
+        <div class="dot a" style="left:26%;top:24%"><i></i>쿠팡: 빠르게 다 파는 곳</div>
+        <div class="dot a" style="left:46%;top:56%"><i></i>펫프렌즈: 펫만 파는 곳</div>
+        <div class="dot a" style="left:74%;top:78%"><i></i>동물병원</div>
+        <div class="dot us a z" style="left:78%;top:22%"><i></i>11PET</div>
+      </div>
+      <div class="a" style="border-left:5px solid var(--red);padding:10px 18px;font-size:19px;line-height:1.55;background:var(--soft)">반려동물을 가족으로 여기는 보호자에게, 11PET은 우리 아이 정보로 맞는 케어를 먼저 골라주고 빨리 배송하는 ‘펫 케어 백화점’이다.</div>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>초기 시장은 건강 관찰형·노령 보호자, 주류 시장 1순위는 품질·건강 중시 약 138만 가구. 포지션은 “우리 아이에게 맞는 케어를 골라주는 곳”</span></div>
+  <style>.lc{background:var(--soft);border-radius:8px;padding:6px 4px;line-height:1.35}.lc b{color:var(--redk)}.sg{display:flex;flex-direction:column;justify-content:center}.sg .num{font-size:40px;font-weight:800;line-height:1}.sg b{font-size:20px;margin-top:6px}.sg p{font-size:15px;color:var(--sub);margin-top:6px;line-height:1.45}</style>
+</section>
+
+<section id="c4" class="chap" data-f="3F" data-who="C"><span class="big">04</span><div class="kk a">CHAPTER 04</div><h2 class="a">차별화 방향</h2><p class="q a">왜 11PET이어야 하나? 제품·서비스·기술</p><div class="meta a"><span class="w">발표 C</span><span>관 안의 관 ▶</span><span>핵심 서비스</span><span>이미지 AI 데모 ▶</span><span>기술</span><span>추천 엔진 데모 ▶</span><span>네트워크 효과 ▶</span></div></section>
+
+<section id="s13" class="sec tall" data-f="3F" data-who="C">
+  <div class="hd"><span class="tool">내부 분석 및 전략 방향</span><span class="tool k">차별화 방향 ① 제품 — 차별화 유형, 상품 증식의 위험(7강)</span><span class="live">LIVE 인터랙션</span></div>
+  <h2 class="tt a">펫 케어를 층으로 나눈다: 관 안의 관</h2>
+  <p class="a" style="font-size:18px;color:var(--sub);margin:-10px 0 18px">층 버튼을 눌러 각 관을 둘러보세요</p>
+  <div class="a" style="flex:1;display:grid;grid-template-columns:220px 1fr;gap:28px">
+    <div class="elv">
+      <div class="elv-disp"><span class="num" id="elvNum">1F</span><i id="elvArrow">▲</i></div>
+      <div class="elv-btns" id="elvBtns"></div>
+      <p style="font-size:13px;color:#9C99A6;text-align:center;margin-top:10px">11PET 층별 안내</p>
+    </div>
+    <div class="elv-car">
+      <div class="door l"></div><div class="door r"></div>
+      <div class="elv-in" id="elvIn"></div>
+    </div>
+  </div>
+  <p class="fn a">운영 원칙: 누구나 둘러볼 수 있고, 펫 프로필을 입력하면 맞춤 추천이 켜진다. 관은 3+1개로 제한한다(라인이 늘수록 복잡성 비용이 커지는 ‘상품 증식의 위험’)</p>
+  <div class="dec a"><b>그래서 결정한 것</b><span>층마다 고객이 바로 느끼는 대표 서비스를 하나씩 두고, 최저가 사료는 관 밖에 둔다</span></div>
+  <style>.elv{background:#1D1C21;border-radius:22px;padding:22px 20px;display:flex;flex-direction:column;align-items:center}.elv-disp{background:#000;border-radius:10px;width:100%;padding:10px 0;display:flex;align-items:center;justify-content:center;gap:10px;color:#FF6B78;font-size:40px;font-weight:900;letter-spacing:.04em}.elv-disp i{font-style:normal;font-size:20px;transition:transform .3s}.elv-btns{display:flex;flex-direction:column;gap:10px;margin-top:18px;width:100%}.elv-btns button{font:inherit;font-family:var(--num);font-weight:800;font-size:20px;height:58px;border-radius:999px;border:2px solid #3A3842;background:#2A2830;color:#E8E6EE;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all .25s}.elv-btns button small{font-family:var(--sans);font-size:13px;font-weight:500;opacity:.8}.elv-btns button.on{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 0 0 4px rgba(244,49,66,.25)}.elv-btns button:focus-visible{outline:3px solid #FF6B78;outline-offset:2px}.elv-car{position:relative;border-radius:22px;overflow:hidden;background:var(--soft);min-height:460px}.door{position:absolute;top:0;bottom:0;width:50%;background:linear-gradient(90deg,#C9C6D2,#E8E6EE 50%,#C9C6D2);z-index:3;transition:transform .45s cubic-bezier(.6,0,.3,1)}.door.l{left:0;transform:translateX(-100%)}.door.r{right:0;transform:translateX(100%)}.elv-car.shut .door{transform:none}.elv-in{position:relative;height:100%;padding:28px 34px;display:flex;flex-direction:column;gap:16px}.fl-top{display:flex;align-items:baseline;gap:16px}.fl-top b{font-family:var(--num);font-size:70px;font-weight:900;line-height:1}.fl-top h3{margin:0;font-size:34px}.fl-top .chip{font-size:14px;font-weight:700}.fl-con{font-size:20px;line-height:1.5}.fl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.fl-grid div{background:var(--paper);border-radius:12px;padding:12px 16px}.fl-grid span{display:block;font-size:13px;color:var(--sub);margin-bottom:4px}.fl-grid b{font-size:17px;line-height:1.4}.shelf{display:flex;gap:12px;flex-wrap:wrap}.prod{background:var(--paper);border-radius:12px;padding:12px;width:150px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font-size:14px;line-height:1.35;animation:pop .45s both}.prod .ic{width:70px;height:70px}@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.9)}}</style>
+</section>
+
+<section id="s14" class="sec" data-f="3F" data-who="C">
+  <div class="hd"><span class="tool">내부 분석 및 전략 방향</span><span class="tool k">차별화 방향 ② 서비스 — 차별화 벡터, 비가격 경쟁(7강)</span></div>
+  <h2 class="tt a">“여기서 사야 하는 이유”를 서비스로 만든다</h2>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;min-height:0">
+    <div class="ks a" style="--c:var(--g);--cb:var(--gbg)"><div class="kh"><span class="num">1</span><b>생애주기 캘린더</b></div><p class="one">바꿔야 할 때를 먼저 알려준다</p>
+      <dl><dt>해결하는 문제</dt><dd>뭘 언제 바꿔야 할지 모름</dd><dt>입력 정보</dt><dd>생년월일·품종·체중</dd><dt>예시</dt><dd>12개월 어린 개 사료 → 성견 사료, 중성화 시기, 7세 노령 사료</dd><dt>수익</dt><dd>먼저 제안 → 객단가·구매 품목 증가</dd><dt>경쟁 서비스</dt><dd>쿠팡은 설문 시점 1회 추천</dd></dl></div>
+    <div class="ks a" style="--c:var(--red);--cb:var(--redbg)"><div class="kh"><span class="num">2</span><b>사료 샘플러 10종</b></div><p class="one">맞는 사료 10종을 1만원대 체험팩으로</p>
+      <dl><dt>해결하는 문제</dt><dd>“안 먹으면 큰 포대를 버려야 한다”</dd><dt>입력 정보</dt><dd>품종·체중·알레르기 → 먹은 반응(잘 먹음/남김/거부)</dd><dt>핵심</dt><dd>리뷰가 없어도 “이 품종·체중에서 82%가 잘 먹음” 같은 11PET만의 지표가 쌓인다</dd><dt>수익</dt><dd>샘플러 판매 + 본품·정기배송 전환</dd><dt>경쟁 서비스</dt><dd>브랜드별 샘플은 있으나 맞춤 묶음·반응 기록은 없음</dd></dl></div>
+    <div class="ks a" style="--c:var(--b);--cb:var(--bbg)"><div class="kh"><span class="num">3</span><b>이미지 AI 케어 분석</b></div><p class="one">사진 한 장으로 케어 참고 정보와 맞춤 상품 추천</p>
+      <dl><dt>해결하는 문제</dt><dd>영양제·위생 용품을 왜, 무엇을 사야 할지 모름</dd><dt>입력 정보</dt><dd>1차 배변 사진, 2차 체형·피부·털 사진 + 펫 프로필</dd><dt>핵심</dt><dd>살 때만이 아니라 매일 앱을 열 이유. 기록이 쌓일수록 정확해진다</dd><dt>수익</dt><dd>이익률 높고 반복 구매되는 케어 상품</dd><dt>경쟁 서비스</dt><dd>쿠팡은 설문으로 배변 상태 입력, 사진 분석은 아님</dd></dl></div>
+  </div>
+  <div class="a" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px">
+    <div style="background:var(--soft);border-radius:12px;padding:12px 18px;font-size:16px;line-height:1.5"><b>공통 원리</b> 세 서비스 모두 펫 프로필을 입력해야 작동한다 → 서비스가 곧 <b>프로필 등록을 늘리는 수단</b></div>
+    <div style="background:var(--tvbg);border-radius:12px;padding:12px 18px;font-size:16px;line-height:1.5;color:var(--tv)"><b>법률 검토 먼저</b> 샘플러 소분은 사료관리법 확인(안 되면 브랜드 공식 체험팩을 묶음), 이미지 AI는 ‘진단’이 아닌 ‘케어 참고 정보’로만, 이상 신호면 추천을 멈추고 병원 안내</div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>가격이 아니라 서비스로 차별화한다. 세 서비스가 펫 프로필 데이터를 모으는 입구가 된다</span></div>
+  <style>.ks{border-radius:16px;background:var(--cb);padding:18px 20px;display:flex;flex-direction:column;border-top:6px solid var(--c)}.kh{display:flex;align-items:center;gap:10px}.kh .num{width:34px;height:34px;border-radius:50%;background:var(--c);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;flex:none}.kh b{font-size:23px}.one{font-size:17px;font-weight:500;color:var(--c);margin:8px 0 10px}.ks dl{margin:0;display:grid;grid-template-columns:100px 1fr;gap:6px 10px;font-size:15.5px;line-height:1.42}.ks dt{color:var(--sub);font-weight:500}.ks dd{margin:0}</style>
+</section>
+
+<section id="s15" class="sec tall" data-f="3F" data-who="C">
+  <div class="hd"><span class="tool">내부 분석 및 전략 방향</span><span class="tool k">차별화 방향 ② 서비스 — 시연</span><span class="live">LIVE 데모</span></div>
+  <h2 class="tt a">사진 한 장이 케어 정보와 맞춤 상품이 된다: 이미지 AI 케어 분석</h2>
+  <div class="a" style="flex:1;display:grid;grid-template-columns:300px 1fr 1fr;gap:24px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <p class="lab" style="margin:0">① 예시 사진을 고르거나 끌어다 놓기</p>
+      <div class="smp" id="aiSamples"></div>
+      <label class="btn ghost" style="text-align:center;cursor:pointer">내 사진 올리기<input type="file" accept="image/*" id="aiFile" hidden></label>
+      <p class="fn" style="margin:0">올린 사진은 이 브라우저 안에서만 쓰이며 어디에도 전송되지 않습니다</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <p class="lab" style="margin:0">② 분석</p>
+      <div class="drop" id="aiDrop"><div class="drop-hint">여기에 사진을 놓으세요</div><img id="aiImg" alt=""><div class="scan" id="aiScan"><i></i></div></div>
+      <ol class="steps" id="aiSteps"><li>모양 인식</li><li>색 분석</li><li>수분 추정</li><li>펫 프로필과 결합</li></ol>
+      <button type="button" class="btn red" id="aiGo" disabled>분석하기</button>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <p class="lab" style="margin:0">③ 결과: 케어 참고 정보</p>
+      <div class="k res" id="aiRes"><p style="color:var(--mute);font-size:16px">분석 결과가 여기에 나타납니다</p></div>
+    </div>
+  </div>
+  <p class="fn a" style="color:var(--tv)">시연용 시뮬레이션입니다. 실제 AI 분석이나 수의학적 진단이 아니며, 서비스에서는 ‘진단’이 아닌 ‘케어 참고 정보’로만 제공하고 이상 신호가 보이면 상품 추천을 멈추고 병원 상담을 안내합니다</p>
+  <div class="dec a"><b>그래서 결정한 것</b><span>분석 결과는 반드시 다음 행동(케어 상품, 병원 안내)으로 이어지게 만든다. 이것이 완전 완비 제품이다</span></div>
+  <style>.smp{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.smp button{border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:6px;cursor:grab;display:flex;flex-direction:column;align-items:center;gap:4px;font:inherit;font-size:12.5px;color:var(--sub)}.smp button.on{border-color:var(--red)}.smp svg{width:100%;border-radius:8px}.drop{position:relative;aspect-ratio:1;border:2.5px dashed var(--line);border-radius:18px;overflow:hidden;background:var(--soft);display:flex;align-items:center;justify-content:center}.drop.over{border-color:var(--red);background:var(--redbg)}.drop img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}.drop.has img{display:block}.drop.has .drop-hint{display:none}.drop-hint{color:var(--mute);font-size:16px}.scan{position:absolute;inset:0;display:none;background-image:radial-gradient(circle,rgba(244,49,66,.55) 1.5px,transparent 2px);background-size:22px 22px}.scan i{position:absolute;left:0;right:0;height:4px;background:var(--red);box-shadow:0 0 18px 6px rgba(244,49,66,.45);animation:scan 1.1s ease-in-out infinite alternate}.drop.busy .scan{display:block}@keyframes scan{from{top:0}to{top:calc(100% - 4px)}}.steps{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.steps li{font-size:13px;text-align:center;background:var(--soft);border-radius:8px;padding:7px 4px;color:var(--mute);transition:all .3s}.steps li.ok{background:var(--red);color:#fff}.res{flex:1;display:flex;flex-direction:column;gap:12px}.gauge{display:grid;grid-template-columns:70px 1fr 44px;gap:10px;align-items:center;font-size:15px}.res .alert{background:var(--redbg);border:2px solid var(--red);border-radius:12px;padding:12px 14px;font-size:16px;line-height:1.5;color:var(--redk);font-weight:500}.res .tip{font-size:17px;line-height:1.5}.rp{display:flex;gap:10px;align-items:center;background:var(--paper);border-radius:10px;padding:8px 10px;font-size:14.5px}.rp .ic{width:44px;height:44px;flex:none}</style>
+</section>
+
+<section id="s16" class="sec" data-f="3F" data-who="C">
+  <div class="hd"><span class="tool">내부 분석 및 전략 방향</span><span class="tool k">차별화 방향 ③ 기술 — TAM·네트워크 효과(5강), 표준·Lock-in(7강)</span></div>
+  <h2 class="tt a">고객 정보와 상품 정보가 만나야 추천이 되고, 쌓일수록 강해진다</h2>
+  <div class="body" style="grid-template-columns:320px 1fr;gap:36px">
+    <div class="a z" style="display:flex;justify-content:center">
+      <div class="phone">
+        <div class="ph-top"><span class="num" style="font-weight:900;color:var(--red)">11</span><span class="num" style="font-weight:800">PET</span><span style="margin-left:auto;font-size:12px;color:var(--mute)">펫 케어 전문관</span></div>
+        <div class="ph-pro"><div class="av">콩</div><div><b>콩이</b><p>말티즈 · 중성화 · 11개월 · 3.2kg</p><p style="color:var(--redk)">알레르기: 닭고기</p></div></div>
+        <div class="ph-cal"><span>생애주기 캘린더</span><b>다음 달, 성견 사료로 바꿀 시기예요</b></div>
+        <div class="ph-tab"><span class="on">먹이</span><span>건강</span><span>위생</span><span>생활</span></div>
+        <div class="ph-card"><div class="img" style="background:var(--redbg);color:var(--redk)">10종</div><div><span class="badge">닭고기 제외 · 소형견</span><b>성견 사료 샘플러</b><p>1만원대 · 먹은 반응 기록</p></div></div>
+        <div class="ph-card"><div class="img" style="background:var(--bbg);color:var(--b)">AI</div><div><span class="badge" style="background:var(--bbg);color:var(--b)">케어 참고 정보</span><b>사진 한 장 케어 분석</b><p>배변 · 체형(예정)</p></div></div>
+        <div class="ph-box"><b>정기배송</b><span>3일 뒤 도착</span></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="a" style="display:grid;grid-template-columns:1fr 140px 1fr;gap:12px;align-items:stretch">
+        <div class="k" style="background:var(--redbg);padding:14px 18px"><div class="l" style="color:var(--redk);font-weight:700">펫 프로필 (고객 쪽)</div><p style="font-size:15.5px;line-height:1.5">종·품종·성별·중성화·생년월일<br>체중·알레르기·선호 브랜드</p></div>
+        <div style="display:flex;align-items:center;justify-content:center"><div style="width:110px;height:110px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:700;font-size:18px;line-height:1.25">케어<br>추천 엔진</div></div>
+        <div class="k" style="background:var(--bbg);padding:14px 18px"><div class="l" style="color:var(--b);font-weight:700">상품 정보 표준 (상품 쪽)</div><p style="font-size:15.5px;line-height:1.5">적합 품종·연령대·체중 범위<br>주원료·알레르기 유발 성분</p></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div class="k a ts"><span class="tg">TAM (5강)</span><b>고객이 기술을 받아들이는 조건</b><p><b>유용성</b> 결과가 곧 맞춤 상품으로 연결 · <b>사용 용이성</b> 사진 한 장, 결과 3초</p></div>
+        <div class="k a ts"><span class="tg">네트워크 효과 (5강)</span><b>쓸수록 정확해지는 수확체증</b><p>사용자 ↑ → 먹은 반응·사진 데이터 ↑ → 추천 정확도 ↑ → 사용자 ↑</p></div>
+        <div class="k a ts"><span class="tg">표준 (7강)</span><b>상품 정보 기준을 업계 표준으로</b><p>판매자가 같은 기준으로 상품을 등록하게 만들면, 그 기준을 만든 11PET이 표준을 쥔다</p></div>
+        <div class="k a ts"><span class="tg">Lock-in · 특허 (7강)</span><b>떠나기 어렵고 따라오기 어렵게</b><p>쌓인 성장·건강 기록이 전환비용이 되고, 이미지 케어 분석 방식은 특허 출원으로 진입장벽</p></div>
+      </div>
+      <p class="fn a" style="margin:0"><b>실현성</b> 제휴 동물병원 수의사가 표시한 사진과 사용자 기록으로 AI 학습, 1차 정확도 목표 85%(가정), 애매하면 병원 안내 우선. <b>개인정보</b> 펫 정보도 보호자 계정과 묶이면 개인정보로 취급, 맞춤 추천과 제휴사 공유는 따로 동의, 제휴사에는 이름을 지운 정보만 제공</p>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>1순위 기술 과제는 펫 프로필과 상품 정보 표준을 동시에 만드는 것. 데이터가 쌓이는 구조 자체가 경쟁력이다</span></div>
+  <style>.phone{width:300px;height:100%;max-height:560px;border:10px solid var(--ink);border-radius:40px;background:var(--paper);padding:18px 14px;display:flex;flex-direction:column;gap:9px;overflow:hidden}.ph-top{display:flex;gap:2px;align-items:center;font-size:22px}.ph-pro{display:flex;gap:10px;align-items:center;background:var(--soft);border-radius:14px;padding:10px}.ph-pro .av{width:46px;height:46px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:19px;flex:none}.ph-pro b{font-size:16px}.ph-pro p{font-size:12px;color:var(--sub);margin-top:2px}.ph-cal{background:var(--gbg);border-radius:12px;padding:9px 12px}.ph-cal span{font-size:11px;color:var(--g)}.ph-cal b{display:block;font-size:14px;color:var(--g)}.ph-tab{display:flex;gap:5px}.ph-tab span{font-size:12px;padding:4px 10px;border-radius:999px;background:var(--soft);color:var(--sub)}.ph-tab span.on{background:var(--ink);color:var(--paper)}.ph-card{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:9px}.ph-card .img{width:56px;height:56px;border-radius:10px;flex:none;display:flex;align-items:center;justify-content:center;font-family:var(--num);font-weight:800;font-size:16px}.ph-card b{display:block;font-size:14px;margin-top:3px}.ph-card p{font-size:11.5px;color:var(--sub)}.badge{font-size:11px;background:var(--gbg);color:var(--g);padding:2px 7px;border-radius:5px}.ph-box{margin-top:auto;background:var(--red);color:#fff;border-radius:12px;padding:11px 14px;display:flex;justify-content:space-between;font-size:14px}.ts{padding:12px 16px;display:flex;flex-direction:column;gap:4px}.ts .tg{align-self:flex-start;font-size:12.5px;font-weight:700;color:var(--redk);background:var(--redbg);border-radius:6px;padding:2px 8px}.ts>b{font-size:17px}.ts p{font-size:14.5px;color:var(--sub);line-height:1.45}.ts p b{color:var(--ink)}</style>
+</section>
+
+<section id="s17" class="sec tall" data-f="3F" data-who="C">
+  <div class="hd"><span class="tool">내부 분석 및 전략 방향</span><span class="tool k">차별화 방향 ③ 기술 — 시연</span><span class="live">LIVE 데모</span></div>
+  <h2 class="tt a">정보를 바꾸면 추천이 바뀐다: 펫 프로필 케어 추천 엔진</h2>
+  <div class="a" style="flex:1;display:grid;grid-template-columns:400px 320px 1fr;gap:26px">
+    <div class="k ctl" id="recCtl">
+      <div class="seg2" role="group" aria-label="종"><button type="button" data-sp="dog" class="on">강아지</button><button type="button" data-sp="cat">고양이</button></div>
+      <label>품종<select id="recBreed"></select></label>
+      <label>나이 <output id="recAgeO"></output><input type="range" id="recAge" min="2" max="180" step="1" value="11"></label>
+      <label>체중 <output id="recWO"></output><input type="range" id="recW" min="1" max="40" step="0.1" value="3.2"></label>
+      <label class="tg"><input type="checkbox" id="recNeu" checked> 중성화 완료</label>
+      <div><span style="font-size:15px;color:var(--sub)">알레르기</span><div class="alg" id="recAlg"><button type="button" data-a="닭고기" class="on">닭고기</button><button type="button" data-a="소고기">소고기</button><button type="button" data-a="곡물">곡물</button></div></div>
+    </div>
+    <div class="phone" style="max-height:none;height:auto;min-height:540px;width:320px">
+      <div class="ph-top"><span class="num" style="font-weight:900;color:var(--red)">11</span><span class="num" style="font-weight:800">PET</span><span style="margin-left:auto;font-size:12px;color:var(--mute)">나의 펫</span></div>
+      <div class="ph-pro"><div class="av" id="recAv"></div><div><b id="recName">콩이</b><p id="recSum"></p><p id="recStage" style="color:var(--redk);font-weight:700"></p></div></div>
+      <div class="ph-cal"><span>생애주기 캘린더</span><b id="recCal"></b></div>
+      <div id="recList" style="display:flex;flex-direction:column;gap:8px"></div>
+      <div class="ph-box"><b>다음 사료 알림</b><span id="recDays"></span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <p class="lab" style="margin:0">엔진 안에서 일어나는 일</p>
+      <div class="k eng"><span class="cn">1</span><div><b>프로필 → 케어 속성으로 변환</b><p id="recAttr"></p></div></div>
+      <div class="k eng"><span class="cn">2</span><div><b>상품 정보 표준과 매칭</b><p id="recMatch"></p><div class="pgrid" id="recGrid"></div></div></div>
+      <div class="k eng"><span class="cn">3</span><div><b>점수 정렬 → 상위 3개 추천</b><p>생애주기 적합 + 체급 적합 + 알레르기 제외 + 케어 필요도 순</p></div></div>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>추천의 정확도는 상품 쪽 정보 표준이 결정한다. 판매자가 같은 기준으로 상품을 등록하게 만드는 것이 기술 전략의 핵심</span></div>
+  <style>.ctl{display:flex;flex-direction:column;gap:16px;padding:20px 22px}.ctl label{display:flex;flex-direction:column;gap:6px;font-size:15px;color:var(--sub)}.ctl label output{font-family:var(--num);font-weight:800;font-size:18px;color:var(--ink);align-self:flex-end;margin-top:-26px}.ctl select{font:inherit;font-size:16px;padding:8px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink)}.ctl .tg{flex-direction:row;align-items:center;gap:8px;color:var(--ink);font-size:16px}input[type=range]{accent-color:var(--red);width:100%}.seg2{display:grid;grid-template-columns:1fr 1fr;background:var(--paper);border-radius:999px;padding:4px;border:1.5px solid var(--line)}.seg2 button,.alg button{font:inherit;font-size:15px;border:none;background:transparent;color:var(--sub);padding:8px;border-radius:999px;cursor:pointer}.seg2 button.on{background:var(--ink);color:var(--paper);font-weight:700}.alg{display:flex;gap:8px;margin-top:6px}.alg button{border:1.5px solid var(--line);background:var(--paper);padding:6px 14px}.alg button.on{background:var(--redbg);border-color:var(--red);color:var(--redk);font-weight:700}.eng{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:14px 16px}.eng .cn{width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-family:var(--num)}.eng b{font-size:17px}.eng p{font-size:14.5px;color:var(--sub);line-height:1.5;margin-top:4px}.pgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:8px;max-width:340px}.pgrid i{aspect-ratio:1;border-radius:6px;background:var(--line);transition:all .35s}.pgrid i.m{background:var(--red);transform:scale(1.08)}.rc{display:flex;gap:9px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px;animation:pop .4s both}.rc .ic{width:48px;height:48px;flex:none}.rc b{display:block;font-size:13.5px}.rc .tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:3px}.rc .tags span{font-size:10.5px;background:var(--gbg);color:var(--g);border-radius:4px;padding:1px 5px}</style>
+</section>
+
+<section id="s18" class="sec" data-f="3F" data-who="C">
+  <div class="hd"><span class="tool">내부 분석 및 전략 방향</span><span class="tool k">네트워크 효과·수확체증(5강), Lock-in(7강)</span><span class="live">LIVE 시뮬레이터</span></div>
+  <h2 class="tt a">쓰는 사람이 많을수록 추천이 정확해진다: 데이터 네트워크 효과</h2>
+  <div class="a" style="display:flex;align-items:center;gap:18px;margin-bottom:14px">
+    <span style="font-size:16px;color:var(--sub);white-space:nowrap">11PET 사용자 수</span>
+    <input type="range" id="netR" min="0" max="100" step="0.5" value="40" aria-label="사용자 수">
+    <span class="num" id="netU" style="font-size:26px;font-weight:900;width:150px;text-align:right"></span>
+  </div>
+  <div class="body a" style="grid-template-columns:1fr 380px;gap:28px">
+    <div class="k" style="padding:16px 18px">
+      <svg viewBox="0 0 900 400" style="width:100%;display:block" id="netSvg" aria-label="사용자 수에 따른 추천 정확도"></svg>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="kc big"><span>월 쌓이는 케어 데이터</span><b id="netD"></b><i>먹은 반응·사진 기록 (1인 월 6건 가정)</i></div>
+      <div class="kc big hi"><span>11PET 추천 정확도</span><b id="netA"></b><i>정확도 = 55% + 35% × (1 − e<sup>−사용자/25만</sup>)</i></div>
+      <div class="kc big"><span>1년 늦게 시작한 경쟁사</span><b id="netC"></b><i>같은 기술이라도 데이터가 적어 격차 발생</i></div>
+      <div class="loop"><span>사용자 ↑</span><i>→</i><span>데이터 ↑</span><i>→</i><span>정확도 ↑</span><i>→</i><span>다시 사용자 ↑</span></div>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>먼저 쌓은 데이터가 진입장벽이다. 분석을 무료로 열어 사용자를 빨리 모으는 것이 기술 전략이자 가격 전략이다</span></div>
+  <style>.loop{display:flex;align-items:center;justify-content:space-between;background:var(--redbg);border-radius:12px;padding:12px 14px;font-size:14.5px;font-weight:700;color:var(--redk)}.loop i{font-style:normal;color:var(--mute)}</style>
+</section>
+
+<section id="c5" class="chap" data-f="4F" data-who="D"><span class="big">05</span><div class="kk a">CHAPTER 05</div><h2 class="a">마케팅 소구점</h2><p class="q a">어떤 가격과 메시지로, 어디서 만나나?</p><div class="meta a"><span class="w">발표 D</span><span>가격</span><span>프로모션·광고 소재 ▶</span><span>고객과의 소통</span><span>SNS 체험 ▶</span><span>유통</span></div></section>
+
+<section id="s19" class="sec" data-f="4F" data-who="D">
+  <div class="hd"><span class="tool">내부 분석 및 전략 방향</span><span class="tool k">마케팅 소구점 ① 가격 — 침투 가격, 가치기반 가격, GBB, 가격전쟁 대처(9강)</span></div>
+  <h2 class="tt a">기술은 무료로 퍼뜨리고, 가치는 케어 상품과 구독으로 회수한다</h2>
+  <div class="body c2">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="k a" style="background:var(--redbg)"><div class="l" style="color:var(--redk);font-weight:700">① 확산: 기술은 무료, 체험은 침투 가격</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px">
+          <div><span class="num" style="font-size:36px;font-weight:900;color:var(--redk)">0원</span><p style="font-size:15px;line-height:1.4">이미지 AI 케어 분석·추천<br>사용자 기반 확보(토네이도)</p></div>
+          <div><span class="num" style="font-size:36px;font-weight:900;color:var(--redk)">1만원대</span><p style="font-size:15px;line-height:1.4">사료 샘플러 10종<br>첫 구매 부담 낮추기</p></div>
+        </div></div>
+      <div class="k a"><div class="l" style="font-weight:700">② 가치기반 가격</div><ul class="ls" style="margin-top:4px"><li>고객이 얻는 가치(병원에 가기 전 미리 알기, 맞지 않는 사료 낭비 줄이기)를 기준으로 구독료 책정</li><li>얼리어답터(노령견 보호자)에게는 Best 구독 3개월 체험가 제공</li></ul></div>
+      <div class="k a"><div class="l" style="font-weight:700">③ 가격전쟁 대처 (Rao·Bergen·Davis, 2000)</div><ul class="ls" style="margin-top:4px"><li>가격 인하 대신 가치 제공: 맞춤 추천은 가격 비교로 빠지지 않는다</li><li>프리미엄 브랜드는 할인가를 노출하지 않고 체험·사은품으로</li><li>최저가 사료는 관 밖 일반 카테고리에서 판매</li></ul></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <p class="lab a">④ 구독: GBB(Good-Better-Best) 3단 가격 (가정)</p>
+      <div class="gbb a">
+        <div><span>Good</span><b>정기배송</b><p class="num">사료 정가</p><ul><li>원하는 주기 자동 배송</li><li>다 떨어지기 전 알림</li></ul></div>
+        <div class="mid"><span>Better</span><b>펫 케어 박스</b><p class="num">26,900원/월</p><ul><li>체중 맞춤 사료</li><li>분석 기반 케어 상품</li><li>생애주기 선물</li></ul></div>
+        <div><span>Best</span><b>케어 박스 플러스</b><p class="num">39,900원/월</p><ul><li>케어 박스 전체</li><li>분기 1회 검사키트</li><li>월간 케어 리포트</li></ul></div>
+      </div>
+      <table class="tb sm a"><thead><tr><th>구독 목표</th><th style="text-align:right">1차 (2027)</th><th style="text-align:right">2차</th><th style="text-align:right">3차</th></tr></thead><tbody>
+        <tr><td>정기배송 가입 (전체)</td><td class="rt">10만</td><td class="rt">18만</td><td class="rt">25만</td></tr>
+        <tr><td>그중 케어 박스·플러스</td><td class="rt">2만</td><td class="rt">5만</td><td class="rt">8만</td></tr>
+      </tbody></table>
+      <p class="fn a">가정: 케어 박스 1인당 연 약 32만 원(26,900원 × 12), 정기배송 가입자의 20~32%가 Better 이상 선택</p>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>AI 분석은 무료로 열어 확산 속도를 높이고, 맞는 케어를 찾은 순간 구독으로 묶는다</span></div>
+  <style>.gbb{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:10px;align-items:stretch}.gbb>div{border:1.5px solid var(--line);border-radius:14px;padding:14px 14px;background:var(--paper)}.gbb>div.mid{background:var(--red);color:#fff;border-color:var(--red);transform:translateY(-6px)}.gbb span{font-size:13px;font-weight:700;opacity:.75}.gbb b{display:block;font-size:20px;margin:2px 0}.gbb p{font-size:20px;font-weight:800;margin:4px 0 8px}.gbb ul{margin:0;padding-left:16px;font-size:14.5px;line-height:1.5}</style>
+</section>
+
+<section id="s20" class="sec tall" data-f="4F" data-who="D">
+  <div class="hd"><span class="tool">내부 분석 및 전략 방향</span><span class="tool k">마케팅 소구점 ② 프로모션 — 브랜드 자산, 성분 브랜드, IMC(10강)</span></div>
+  <h2 class="tt a">할인 배너 대신 우리 아이 이야기로 말한다</h2>
+  <div class="body" style="grid-template-columns:1fr 1.05fr;gap:30px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div class="k a"><div class="l">브랜드 전략: 모 브랜드 + 서브 브랜드</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:10px"><span class="chip cr" style="font-size:18px;font-weight:700;padding:8px 16px">11번가</span><span style="font-size:22px;color:var(--mute)">→</span><span class="chip" style="background:var(--red);color:#fff;font-size:18px;font-weight:700;padding:8px 16px">11PET</span></div>
+          <p style="font-size:15px;color:var(--sub);line-height:1.45;margin-top:10px">11번가의 인지도·배송 신뢰는 빌리고, 펫 케어 전문성은 11PET 이름으로 쌓는다</p></div>
+        <div class="k a"><div class="l">기술 성분 브랜드</div>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:6px"><div class="seal">11PET<br>AI 케어</div><p style="font-size:15px;color:var(--sub);line-height:1.45">분석 결과에는 ‘11PET AI 케어’, 상품에는 ‘기호성 82%’ 마크. 기술을 눈에 보이는 브랜드로(인텔 인사이드 방식)</p></div></div>
+      </div>
+      <div class="k a"><div class="l">IMC 캘린더 — 매달 반복되는 리듬</div>
+        <div class="imc">
+          <div><span>매월 1~3일</span><b>월초 정기 행사</b><p>단골 고객에게 자동 쿠폰</p></div>
+          <div><span>시기별</span><b>캘린더 알림</b><p>성견 전환·중성화·노령 전환</p></div>
+          <div><span>매일</span><b>사진 케어 기록</b><p>앱을 다시 여는 이유</p></div>
+          <div><span>연 2회</span><b>펫 박람회 체험존</b><p>샘플러 현장 체험, QR로 프로필 등록</p></div>
+        </div></div>
+      <div class="k a" style="background:var(--redbg)"><div class="l" style="color:var(--redk);font-weight:700">IMC 3원칙 (10강)</div><ul class="ls" style="margin-top:4px"><li><b>분명하고 단순한 메시지</b> “우리 아이에게 맞는 케어”</li><li><b>이성 + 감성 자극</b> 기호성 82%(이성) + 첫 생일 카드(감성)</li><li><b>반복</b> 월초 행사·캘린더·매일 기록이 같은 메시지를 되풀이</li></ul></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <p class="lab a" style="margin:0">같은 메시지, 채널별 광고 소재 — 탭을 눌러 보세요</p>
+      <div class="tabs a" role="tablist" id="adTabs"><button type="button" class="on" data-t="ig">인스타그램</button><button type="button" data-t="fb">페이스북</button><button type="button" data-t="yt">유튜브</button><button type="button" data-t="se">검색 광고</button></div>
+      <div class="adwrap a">
+        <div class="ad on" data-p="ig"><div class="igad"><div class="igh"><span class="lg">11</span><b>11pet.official</b><small>광고</small></div><div class="adimg" data-scene="sampler"></div><div class="igcta">샘플러 받기 <span>›</span></div><p><b>11pet.official</b> 우리 개가 먹을까? 10종 먹어보고 고르세요 🐾 품종·체중에 맞춘 1만원대 체험팩</p></div></div>
+        <div class="ad" data-p="fb"><div class="fbad"><div class="fbh"><span class="lg">11</span><div><b>11PET</b><small>광고 · 🌐</small></div></div><p>노견을 키우신다면, 사진 한 장으로 오늘의 케어 상태를 확인해 보세요. 무료 AI 케어 분석과 맞춤 케어 상품까지.</p><div class="adimg wide" data-scene="senior"></div><div class="fbl"><div><small>11ST.CO.KR</small><b>노령견 케어, 11PET에서 시작하세요</b></div><span>더 알아보기</span></div></div></div>
+        <div class="ad" data-p="yt"><div class="ytad"><div class="adimg wide" data-scene="eat"><span class="play">▶</span><span class="ytb">광고 · 0:15</span><span class="skip">5초 후 건너뛰기</span></div><div class="ytm"><span class="lg">11</span><div><b>우리 개가 먹을까? 15초 먹방 챌린지</b><small>11PET · 스폰서</small></div><span class="ytc">샘플러 받기</span></div></div></div>
+        <div class="ad" data-p="se"><div class="sead"><div class="seq"><span>🔍</span>강아지 사료 추천</div><div class="ser"><small><b>광고</b> · 11st.co.kr/11pet</small><a>품종·체중 맞춤 사료 10종 체험 | 11PET</a><p>먹어보고 고르세요. 알레르기 성분은 자동으로 빼고, 잘 먹는 사료는 정기배송으로.</p><div class="sl"><span>샘플러 10종</span><span>노령견 사료</span><span>무료 AI 케어 분석</span></div></div><div class="ser dim"><small>blog.example.com</small><a>강아지 사료 고르는 법 총정리</a><p>사료 고를 때 확인해야 할 성분과 연령별 기준…</p></div></div></div>
+      </div>
+      <p class="fn a" style="margin:0">TMC(2강): 목표 고객과 메시지는 같게, 채널마다 형식만 바꾼다. 일러스트는 팀 자체 제작 예시</p>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>메시지는 하나 — “우리 아이에게 맞는 케어”. 할인율이 아니라 맞춤과 데이터로 만든 신뢰를 알린다</span></div>
+  <style>.seal{width:84px;height:84px;flex:none;border-radius:50%;border:3px solid var(--red);display:flex;align-items:center;justify-content:center;text-align:center;font-size:13px;font-weight:800;color:var(--redk);line-height:1.25;animation:breathe 3s ease-in-out infinite}@keyframes breathe{50%{transform:scale(1.06);box-shadow:0 0 0 8px var(--redbg)}}.imc{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px}.imc>div{border-top:4px solid var(--red);padding-top:8px}.imc span{font-size:14px;color:var(--redk);font-weight:800}.imc b{display:block;font-size:18px;margin-top:2px}.imc p{font-size:14px;color:var(--sub);line-height:1.4;margin-top:4px}.tabs{display:flex;gap:6px;background:var(--soft);padding:5px;border-radius:999px;align-self:flex-start}.tabs button{font:inherit;font-size:15px;border:none;background:transparent;color:var(--sub);padding:8px 18px;border-radius:999px;cursor:pointer}.tabs button.on{background:var(--ink);color:var(--paper);font-weight:700}.adwrap{position:relative;flex:1;background:var(--soft);border-radius:18px;padding:18px;display:flex;align-items:center;justify-content:center;min-height:470px}.ad{display:none;width:100%;max-width:520px;animation:pop .4s both}.ad.on{display:block}.lg{width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:var(--num);font-weight:900;font-size:13px;flex:none}.igad,.fbad,.ytad,.sead{background:var(--paper);border-radius:14px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.08)}.igad{max-width:380px;margin:0 auto}.igh,.fbh{display:flex;align-items:center;gap:10px;padding:10px 12px;font-size:14px}.igh small{margin-left:auto;color:var(--mute)}.fbh small{display:block;color:var(--mute);font-size:12px}.adimg{aspect-ratio:1;position:relative;overflow:hidden}.adimg.wide{aspect-ratio:16/9}.adimg svg{width:100%;height:100%;display:block}.igcta{display:flex;justify-content:space-between;padding:10px 12px;background:var(--red);color:#fff;font-weight:700;font-size:15px}.igad p,.fbad>p{font-size:14.5px;line-height:1.5;padding:10px 12px}.fbl{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--soft);padding:10px 12px}.fbl small{display:block;color:var(--mute);font-size:12px}.fbl b{font-size:15px}.fbl span{background:var(--line);border-radius:8px;padding:7px 12px;font-size:14px;font-weight:700;white-space:nowrap}.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px}.ytb{position:absolute;left:10px;bottom:10px;background:#F4C430;color:#000;font-size:12px;font-weight:700;padding:2px 6px;border-radius:3px}.skip{position:absolute;right:0;bottom:14px;background:rgba(0,0,0,.7);color:#fff;font-size:13px;padding:8px 12px}.ytm{display:flex;align-items:center;gap:10px;padding:12px}.ytm small{display:block;color:var(--mute);font-size:12px}.ytm b{font-size:15px}.ytc{margin-left:auto;background:var(--b);color:#fff;border-radius:999px;padding:7px 14px;font-size:13px;font-weight:700;white-space:nowrap}.sead{padding:18px 20px}.seq{border:1.5px solid var(--line);border-radius:999px;padding:10px 16px;font-size:16px;display:flex;gap:10px;margin-bottom:14px}.ser{margin-bottom:14px}.ser small{color:var(--sub);font-size:13px}.ser a{display:block;color:var(--b);font-size:19px;margin:3px 0;text-decoration:none}.ser p{font-size:14.5px;color:var(--sub);line-height:1.5}.sl{display:flex;gap:14px;margin-top:6px}.sl span{color:var(--b);font-size:14px}.ser.dim{opacity:.5}</style>
+</section>
+
+<section id="s21" class="sec" data-f="4F" data-who="D">
+  <div class="hd"><span class="tool">내부 분석 및 전략 방향</span><span class="tool k">마케팅 소구점 ③ 고객과의 소통 — TMC(2강), SNS·e-WOM(10강)</span></div>
+  <h2 class="tt a">광고로 부르고, SNS로 퍼뜨리고, 앱에서 대화한다</h2>
+  <div style="display:grid;grid-template-columns:1fr 30px 1.15fr 30px 1fr;gap:6px;align-items:stretch">
+    <div class="cm a" style="--c:var(--b);--cb:var(--bbg)"><div class="ch"><span>유료 광고</span><b>부르기</b></div>
+      <ul class="ls">
+        <li><b>인스타그램·페이스북 광고</b> 입양 초기, 노령견 보호자 등 생애주기별 타겟</li>
+        <li><b>재방문 광고</b> 펫 상품을 보고 사지 않은 고객에게 샘플러 광고</li>
+        <li><b>검색 광고</b> “강아지 사료 추천”, “노견 사료” → 샘플러 페이지</li>
+        <li><b>유튜브 쇼츠</b> 15초 ‘먹는 반응’ 영상</li>
+      </ul>
+      <p class="cmsg">광고 문구: “우리 개가 먹을까? 10종 먹어보고 고르세요”</p></div>
+    <div class="arrow a">&#8594;</div>
+    <div class="cm a" style="--c:var(--red);--cb:var(--redbg)"><div class="ch"><span>자사 채널 · 입소문</span><b>퍼뜨리기</b></div>
+      <ul class="ls">
+        <li><b>인스타그램 공식 계정</b> 큐레이션 피드 주 3회, 릴스 ‘샘플러 언박싱’</li>
+        <li><b>#우리개가먹을까 챌린지</b> 샘플러 10종을 먹는 모습을 고객이 직접 찍어 공유</li>
+        <li><b>페이스북</b> 30~50대 보호자 대상 건강 카드뉴스, 노령견 보호자 모임</li>
+        <li><b>반려동물 인플루언서</b> 견종·묘종별 소규모 인플루언서 30명</li>
+        <li><b>카카오톡 채널·라이브 커머스</b> 월초 행사 알림, 수의사 Q&amp;A 라이브</li>
+      </ul></div>
+    <div class="arrow a">&#8594;</div>
+    <div class="cm a" style="--c:var(--g);--cb:var(--gbg)"><div class="ch"><span>앱 안의 양방향 소통</span><b>대화하기</b></div>
+      <ul class="ls">
+        <li><b>고객이 말한다</b> 먹은 반응 입력, 케어 사진 기록</li>
+        <li><b>11PET이 답한다</b> 기호성 지표·건강 카드·변화 그래프로 돌려준다</li>
+        <li><b>먼저 말을 건다</b> 생애주기 알림(앱 푸시·카톡)</li>
+        <li><b>공유 버튼</b> 건강 카드·생일 카드를 SNS로 → 다시 퍼뜨리기</li>
+      </ul></div>
+  </div>
+  <div class="a" style="text-align:center;font-size:15px;color:var(--redk);margin:8px 0 6px;font-weight:500">선순환: 앱 기록 → SNS 공유(온라인 입소문, e-WOM) → 신규 고객 유입 → 펫 프로필 등록 → 더 정확한 추천</div>
+  <div style="display:grid;grid-template-columns:1.35fr 1fr;gap:20px;flex:1;min-height:0">
+    <table class="tb sm a" style="font-size:15px"><thead><tr><th>목표 고객 (T)</th><th>메시지 (M)</th><th>채널 (C)</th></tr></thead><tbody>
+      <tr><td class="h">핵심: 품질·건강 중시</td><td>“우리 아이 정보로 골랐습니다”</td><td>인스타 피드, 앱 맞춤 추천</td></tr>
+      <tr><td class="h">확장: 품질 중시·관심 낮음</td><td>“먹어보고 고르세요, 10종 1만원대”</td><td>SNS·검색 광고, 릴스</td></tr>
+      <tr><td class="h">건강 관찰형</td><td>“사진 한 장으로 오늘 건강 참고”</td><td>페이스북 모임, 쇼츠</td></tr>
+      <tr><td class="h">입양 초기</td><td>“첫 사료부터 시기별로 알려드려요”</td><td>SNS 타겟 광고, 카톡</td></tr>
+    </tbody></table>
+    <div class="a" style="display:flex;flex-direction:column;gap:8px">
+      <table class="tb sm" style="font-size:15px"><thead><tr><th>SNS·광고 목표 (가정)</th><th style="text-align:right">1차 (2027)</th></tr></thead><tbody>
+        <tr><td>인스타그램 팔로워</td><td class="rt">5만</td></tr>
+        <tr><td>챌린지 고객 게시물 (월)</td><td class="rt">2,000건</td></tr>
+        <tr><td>샘플러 광고 비용 대비 매출</td><td class="rt">300%</td></tr>
+        <tr><td>SNS 통한 펫 프로필 등록</td><td class="rt">10만</td></tr>
+      </tbody></table>
+      <p class="fn" style="margin:0">가정: 등록 50만 중 20%가 SNS·광고로 유입. 이미지 AI 광고는 ‘케어 참고 정보’로, 영양제는 식약처 기준 표현만 사용</p>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>광고는 샘플러 하나로 부르고, SNS는 고객이 만든 기록으로 퍼뜨린다. 모든 소통의 끝은 펫 프로필 등록</span></div>
+  <style>.cm{background:var(--cb);border-radius:14px;padding:14px 16px;border-top:5px solid var(--c)}.ch span{font-size:13px;color:var(--c);font-weight:700}.ch b{display:block;font-size:21px;margin:2px 0 8px}.cm ul.ls li{font-size:15px;margin-bottom:5px;line-height:1.4}.cm ul.ls li::before{background:var(--c)}.cm ul.ls b{color:var(--c)}.cmsg{font-size:14px;font-weight:700;color:var(--c);border-top:1px dashed var(--c);padding-top:6px;margin-top:4px}</style>
+</section>
+
+<section id="s22" class="sec tall" data-f="4F" data-who="D">
+  <div class="hd"><span class="tool">내부 분석 및 전략 방향</span><span class="tool k">마케팅 소구점 ③ 고객과의 소통 — SNS 운영안 시연, e-WOM(10강)</span><span class="live">LIVE 데모</span></div>
+  <h2 class="tt a">11PET 인스타그램과 #우리개가먹을까 챌린지</h2>
+  <div class="a" style="flex:1;display:grid;grid-template-columns:400px 1fr;gap:40px">
+    <div class="ig">
+      <div class="ig-top"><b>11pet.official</b><span>♡ ✉</span></div>
+      <div class="ig-tabs"><button type="button" class="on" data-ig="feed">피드</button><button type="button" data-ig="reel">릴스</button></div>
+      <div class="ig-body" data-igp="feed">
+        <div class="stories" id="igStories"></div>
+        <div id="igFeed"></div>
+      </div>
+      <div class="ig-body reel" data-igp="reel" hidden>
+        <div class="rbar"><i></i></div>
+        <div class="rs r1"><div class="adimg" data-scene="box"></div><p>도착! 우리 아이 맞춤 10종 샘플러</p></div>
+        <div class="rs r2"><div class="adimg" data-scene="pouches"></div><p>하루에 하나씩 먹여보기</p></div>
+        <div class="rs r3"><div class="adimg" data-scene="eat"></div><p>3번 사료 완식 ✓ 반응 기록 완료</p></div>
+        <div class="rside"><span>♥<br>2.4만</span><span>💬<br>812</span><span>↗</span></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between">
+        <div><p class="lab" style="margin:0">고객이 만드는 콘텐츠(UGC) 월</p><div class="num" style="font-size:64px;font-weight:900;color:var(--redk);line-height:1"><span id="ugcN">0</span><span style="font-family:var(--sans);font-size:26px">건</span></div></div>
+        <div style="text-align:right"><b style="font-size:24px">#우리개가먹을까</b><p style="font-size:15px;color:var(--sub)">샘플러 10종을 먹는 모습을 찍어 올리는 챌린지</p></div>
+      </div>
+      <div class="wall" id="ugcWall"></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+        <div class="kc"><span>피드</span><b style="font-size:20px">주 3회</b><i>큐레이션 사진·카드뉴스</i></div>
+        <div class="kc"><span>릴스·쇼츠</span><b style="font-size:20px">주 2회</b><i>15초 먹는 반응·언박싱</i></div>
+        <div class="kc"><span>인플루언서</span><b style="font-size:20px">30명</b><i>견종·묘종별 소규모</i></div>
+      </div>
+    </div>
+  </div>
+  <p class="fn a">왼쪽 휴대폰 안의 피드를 스크롤하고 ♡를 눌러 보세요. 계정·게시물·수치는 운영안을 보여주기 위한 예시</p>
+  <div class="dec a"><b>그래서 결정한 것</b><span>SNS의 주인공은 11PET이 아니라 고객의 반려동물이다. 고객 게시물이 곧 광고가 되는 e-WOM 구조를 만든다</span></div>
+  <style>.ig{width:400px;border:10px solid var(--ink);border-radius:44px;background:var(--paper);overflow:hidden;display:flex;flex-direction:column;height:720px;justify-self:center}.ig-top{display:flex;justify-content:space-between;align-items:center;padding:16px 18px 8px;font-size:18px}.ig-tabs{display:flex;border-bottom:1px solid var(--line)}.ig-tabs button{flex:1;font:inherit;font-size:15px;border:none;background:none;color:var(--mute);padding:8px;cursor:pointer;border-bottom:2px solid transparent}.ig-tabs button.on{color:var(--ink);font-weight:700;border-color:var(--ink)}.ig-body{flex:1;overflow-y:auto;scrollbar-width:thin}.stories{display:flex;gap:12px;padding:12px 14px;overflow-x:auto;border-bottom:1px solid var(--line)}.st{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11.5px;color:var(--sub);flex:none}.st i{width:60px;height:60px;border-radius:50%;padding:3px;background:conic-gradient(#F43142,#FF9A3C,#F43142);display:block;animation:ring 3s linear infinite}.st i span{display:block;width:100%;height:100%;border-radius:50%;background:var(--paper);padding:3px}.st svg{width:100%;height:100%;border-radius:50%}@keyframes ring{50%{filter:hue-rotate(40deg)}}.post{border-bottom:1px solid var(--line);padding-bottom:10px}.ph{display:flex;align-items:center;gap:8px;padding:10px 12px;font-size:14px}.post .adimg{cursor:pointer}.pa{display:flex;gap:14px;padding:8px 12px 2px;font-size:22px}.pa button{font:inherit;font-size:24px;border:none;background:none;cursor:pointer;color:var(--ink);padding:0;line-height:1}.pa button.lk{color:var(--red)}.pl{font-size:14px;font-weight:700;padding:2px 12px}.pc{font-size:14px;padding:2px 12px;line-height:1.45}.cm{font-size:13.5px;padding:2px 12px;color:var(--sub);animation:pop .4s both}.burst{position:absolute;left:50%;top:50%;font-size:90px;color:#fff;transform:translate(-50%,-50%) scale(0);text-shadow:0 4px 20px rgba(0,0,0,.25);pointer-events:none;animation:burst .8s ease-out forwards}@keyframes burst{30%{transform:translate(-50%,-50%) scale(1.15);opacity:1}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}.reel{position:relative;background:#111}.rbar{position:absolute;left:10px;right:10px;top:10px;height:3px;background:rgba(255,255,255,.3);border-radius:2px;z-index:3}.rbar i{display:block;height:100%;background:#fff;border-radius:2px;animation:rbar 15s linear infinite}@keyframes rbar{from{width:0}to{width:100%}}.rs{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0}.rs .adimg{aspect-ratio:auto;height:70%}.rs p{color:#fff;font-size:20px;font-weight:700;padding:16px 18px;text-align:center}.r1{animation:r1 15s infinite}.r2{animation:r2 15s infinite}.r3{animation:r3 15s infinite}@keyframes r1{0%,31%{opacity:1}33%,100%{opacity:0}}@keyframes r2{0%,32%{opacity:0}34%,64%{opacity:1}66%,100%{opacity:0}}@keyframes r3{0%,65%{opacity:0}67%,98%{opacity:1}100%{opacity:0}}.rside{position:absolute;right:12px;bottom:110px;display:flex;flex-direction:column;gap:18px;color:#fff;text-align:center;font-size:13px;z-index:3}.wall{flex:1;display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:min-content;gap:8px;align-content:start;overflow:hidden;max-height:470px}.ug{background:var(--soft);border-radius:12px;padding:6px;animation:pop .45s both;display:flex;flex-direction:column;gap:4px}.ug svg{width:100%;border-radius:8px;display:block}.ug b{font-size:12px;line-height:1.3}.ug span{font-size:11px;color:var(--sub)}</style>
+</section>
+
+<section id="s23" class="sec" data-f="4F" data-who="D">
+  <div class="hd"><span class="tool">내부 분석 및 전략 방향</span><span class="tool k">마케팅 소구점 ④ 유통 — 유통의 기능, O2O(2강), B2B2C(5강)</span></div>
+  <h2 class="tt a">앱 하나가 아니라, 보호자가 있는 곳마다 11PET을 둔다</h2>
+  <div class="body" style="grid-template-columns:1.25fr 1fr;gap:26px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <p class="lab a">고객을 만나는 채널 (판매 채널)</p>
+      <div class="ch4 a l"><span class="cn" style="background:var(--red)">온라인</span><div><b>11번가 앱 펫 전문관</b><p>주 판매 채널. 맞춤 추천·정기배송·케어 기록이 모두 여기서 이뤄진다</p></div></div>
+      <div class="ch4 a l"><span class="cn" style="background:var(--g)">B2B2C</span><div><b>동물병원</b><p>진료 후 수의사가 맞춤 사료를 권하면 QR로 11PET 정기배송 연결. 병원은 추천 수수료, 처방식은 제외</p></div></div>
+      <div class="ch4 a l"><span class="cn" style="background:var(--b)">O2O</span><div><b>펫 박람회·팝업 체험존</b><p>케이펫페어 같은 박람회에서 샘플러를 직접 체험, 현장에서 펫 프로필 등록</p></div></div>
+      <div class="ch4 a l"><span class="cn" style="background:var(--p)">제휴</span><div><b>제휴 앱 연결 (2차)</b><p>펫보험 비교 앱, 반려동물 등록·산책 앱과 연결해 다른 앱의 고객도 11PET으로</p></div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <p class="lab a">상품이 들어오는 경로 (공급 채널)</p>
+      <table class="tb sm a" style="font-size:15px"><thead><tr><th>공급자</th><th>들어오는 방식</th><th>관</th></tr></thead><tbody>
+        <tr><td class="h">사료·간식 브랜드</td><td>직접 입점, 샘플러용 체험팩 공급</td><td>1F</td></tr>
+        <tr><td class="h">펫 케어 스타트업</td><td>입점 + 11번가 물류 대행(보관·포장·배송)</td><td>2F</td></tr>
+        <tr><td class="h">프리미엄·해외 브랜드</td><td>할인가 비노출 조건의 전용 입점, 해외 직구</td><td>3F</td></tr>
+      </tbody></table>
+      <div class="k a"><div class="l" style="font-weight:700">유통의 기능(2강)으로 본 11PET</div>
+        <ul class="ls" style="margin-top:4px"><li><b>정보 제공</b> 펫 프로필 맞춤 추천</li><li><b>촉진</b> 샘플러로 첫 구매 부담 해소</li><li><b>물류 효율화</b> 정기배송으로 재고·배송 예측</li></ul></div>
+      <div class="k a" style="background:var(--tvbg)"><div class="l" style="font-weight:700;color:var(--tv)">채널 갈등 관리</div><p style="font-size:15px;line-height:1.45">브랜드 자사몰과는 가격을 맞추고, 동물병원과는 처방식을 다루지 않아 서로의 영역을 지킨다</p></div>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>판매는 앱 하나에 가두지 않고 병원·박람회·제휴 앱으로 넓힌다. 어느 채널로 오든 펫 프로필 등록으로 이어지게 설계한다</span></div>
+  <style>.ch4{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;background:var(--soft);border-radius:12px;padding:12px 16px}.cn{color:#fff;font-size:14px;font-weight:700;border-radius:999px;padding:6px 0;text-align:center}.ch4 b{font-size:19px}.ch4 p{font-size:15px;color:var(--sub);line-height:1.45;margin-top:2px}</style>
+</section>
+
+<section id="c6" class="chap" data-f="5F" data-who="총괄"><span class="big">06</span><div class="kk a">CHAPTER 06</div><h2 class="a">달성 방안</h2><p class="q a">누구와, 어떤 순서로 실현하나?</p><div class="meta a"><span class="w">발표 총괄</span><span>조직 구성</span><span>외부 협력</span><span>로드맵·리스크</span><span>결론</span></div></section>
+
+<section id="s24" class="sec" data-f="5F" data-who="B 또는 D">
+  <div class="hd"><span class="tool">달성 방안</span><span class="tool k">조직 구성</span></div>
+  <h2 class="tt a">작게 시작해 데이터와 함께 키운다</h2>
+  <div class="body" style="grid-template-columns:1.5fr 1fr">
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+      <div class="og a" style="background:var(--soft)">11번가 카테고리 사업 부문</div>
+      <div class="vline a"></div>
+      <div class="og a z" style="background:var(--red);color:#fff;font-weight:700;font-size:22px">11PET 전담팀 · 팀장</div>
+      <div class="vline a"></div>
+      <div class="a" style="border-top:2px solid var(--line);width:88%"></div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;width:100%;margin-top:14px">
+        <div class="ou a"><b>상품 기획</b><p>관별 상품 구성<br>브랜드 입점</p></div>
+        <div class="ou a"><b>상품 정보</b><p>품종·연령·성분<br>기준 정리</p></div>
+        <div class="ou a"><b>데이터·AI</b><p>추천 엔진<br>이미지 AI</p></div>
+        <div class="ou a"><b>UX·마케팅</b><p>전문관 화면<br>SNS·광고</p></div>
+        <div class="ou a"><b>제휴</b><p>병원·브랜드<br>보험 (2차)</p></div>
+      </div>
+      <div class="a" style="margin-top:14px;display:flex;gap:10px;align-items:center"><span class="chip ck">법률·물류 검토 TF</span><span style="font-size:15px;color:var(--sub)">사료관리법(소분)·수의사법(AI 표현) 검토, 2027년 1분기에 먼저 진행</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">
+      <p class="lab a">단계별 인력 (가정)</p>
+      <div class="k a"><div style="display:grid;grid-template-columns:60px 1fr 60px;gap:12px;align-items:center;font-size:17px">
+        <b>1차</b><div class="bar" style="height:20px"><i style="--w:50%"></i></div><b class="num">14명</b>
+        <b>2차</b><div class="bar" style="height:20px"><i style="--w:75%"></i></div><b class="num">21명</b>
+        <b>3차</b><div class="bar" style="height:20px"><i style="--w:100%"></i></div><b class="num">28명</b>
+      </div></div>
+      <div class="k a" style="background:var(--bbg)"><div class="l" style="color:var(--b);font-weight:700">R&amp;D와 마케팅의 협력 (6강)</div><p style="font-size:15.5px;line-height:1.5">데이터·AI 개발자와 마케터를 한 팀에 두고, 출시한 기능의 고객 반응을 매주 함께 보며 바로 개선한다</p></div>
+      <p class="fn a">배송·고객센터는 11번가 기존 조직을 공유하고, 데이터·AI 인력은 개발 조직과 함께 운영해 고정비를 줄인다</p>
+    </div>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>11PET은 별도 회사가 아니라 전담팀이다. 새로 필요한 인력만 두고, 개발 인력은 출시 일정에 맞춰 우선 배정한다</span></div>
+  <style>.og{border-radius:12px;padding:12px 26px;font-size:18px}.vline{height:18px;border-left:2px solid var(--line)}.ou{background:var(--soft);border-radius:12px;padding:14px 8px;text-align:center}.ou b{font-size:18px;color:var(--redk)}.ou p{font-size:14.5px;color:var(--sub);margin-top:6px;line-height:1.4}</style>
+</section>
+
+<section id="s25" class="sec" data-f="5F" data-who="총괄">
+  <div class="hd"><span class="tool">달성 방안</span><span class="tool k">외부와의 협력 — B2B 가치제안 3요소(6강), B2B2C(5강)</span></div>
+  <h2 class="tt a">파트너마다 ‘왜 우리와 손잡아야 하는지’를 B2B 가치로 제안한다</h2>
+  <table class="tb a bv">
+    <thead><tr><th style="width:230px">파트너 (제휴 후보)</th><th>경제적 가치</th><th>기술적 가치</th><th>이미지 가치</th></tr></thead>
+    <tbody>
+    <tr><td><b>동물병원</b><p>진료 후 맞춤 케어 → 11PET 정기배송 연결</p></td><td>추천 수수료, 재고 부담 감소</td><td>보호자 동의 시 케어 기록 공유로 진료에 참고</td><td>처방식은 병원 영역으로 남겨 신뢰 유지</td></tr>
+    <tr><td><b>펫 케어 스타트업</b><p>예: 핏펫 — 검사키트 ‘어헤드’, 2025년 NH농협손해보험과 펫보험 공동 개발</p></td><td>고객 획득·물류 비용 절감 (물류 대행)</td><td>동의받은 데이터 공동 활용, 상품 정보 표준 연동</td><td>대형 플랫폼 입점으로 신뢰 확보</td></tr>
+    <tr><td><b>사료·영양제 브랜드</b><p>샘플러용 공식 체험팩 공급</p></td><td>가장 비싼 ‘첫 체험’ 비용을 11PET이 대신</td><td>품종·체중별 먹은 반응 데이터로 제품 개선</td><td>프리미엄 브랜드는 할인가 비노출로 가치 보호</td></tr>
+    <tr><td><b>손해보험사·보험 비교 플랫폼</b> <span class="chip cp" style="font-size:12px;padding:1px 8px">2차</span><p>펫보험 판매사 11곳(삼성화재·KB손해보험·현대해상·DB손해보험·메리츠화재 등), 카카오페이 펫보험 비교(2024)</p></td><td>새 가입 채널, 비교·가입 연결 수수료</td><td>케어 기록 기반 위험 정보로 상품 설계 지원</td><td>예방 케어를 돕는 보험이라는 이미지</td></tr>
+    </tbody>
+  </table>
+  <div class="a" style="display:flex;gap:16px;align-items:center;margin-top:8px">
+    <div style="width:104px;height:104px;flex:none;border-radius:50%;background:var(--red);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center"><b class="num" style="font-size:22px">11PET</b><p style="font-size:11px;line-height:1.3;margin-top:2px">B2B2C 허브</p></div>
+    <p style="font-size:15.5px;line-height:1.5;color:var(--sub)">11PET은 진단·진료·보험을 직접 하지 않는다. 고객 접점과 데이터를 쥐고 파트너의 상품·서비스를 보호자에게 연결하는 <b style="color:var(--ink)">B2B2C 허브</b> 역할을 한다. 파트너는 공개 자료로 확인한 기업·서비스이며, 실제 협력 여부는 확정되지 않은 제휴 후보다</p>
+  </div>
+  <div class="dec a"><b>그래서 결정한 것</b><span>파트너 제안은 경제·기술·이미지 세 가지 가치로 설명한다. 기술적 가치의 중심은 데이터와 상품 정보 표준이다</span></div>
+  <style>.bv td{font-size:15px;padding:8px 10px}.bv td:first-child b{font-size:18px}.bv td p{font-size:13.5px;color:var(--sub);line-height:1.4;margin-top:4px}</style>
+</section>
+
+<section id="s26" class="sec" data-f="5F" data-who="총괄">
+  <div class="hd"><span class="tool">달성 방안</span><span class="tool k">기술 로드맵(1강·7강), 사업 로드맵, 리스크 관리</span></div>
+  <h2 class="tt a">순서가 전략이다: 기술 기반이 먼저, 서비스는 그 위에</h2>
+  <div class="rmg a">
+    <div class="rl">기술</div>
+    <div class="tc">상품 정보 표준 설계, 법률 검토</div><div class="tc">펫 프로필 등록, 추천 엔진 1.0</div><div class="tc">생애주기 예측 규칙</div><div class="tc">샘플러 반응 데이터 수집</div><div class="tc">이미지 AI 1.0 (배변)</div><div class="tc" style="background:var(--pbg);color:var(--p)">이미지 AI 2.0 (체형·피부·털), 보험 위험 정보</div>
+    <div class="rl">사업</div>
+    <div class="bc">투자·인력 확정</div><div class="bc">캘린더 출시, 월초 정기 행사</div><div class="bc">전문관 오픈, 정기배송, 프리미엄 브랜드</div><div class="bc">샘플러 10종 출시</div><div class="bc">케어 박스, 오픈마켓 펫 1위 측정</div><div class="bc" style="background:var(--pbg);color:var(--p)">4F 생활 케어관, 해외 브랜드</div>
+    <div></div>
+    <div class="qq">2026 4Q</div><div class="qq">2027 1Q</div><div class="qq">2027 2Q</div><div class="qq">2027 3Q</div><div class="qq">2027 4Q</div><div class="qq" style="color:var(--p)">2·3차 연도</div>
+  </div>
+  <table class="tb sm a" style="font-size:15px;margin-top:12px">
+    <thead><tr><th style="width:270px">리스크</th><th style="width:80px">영향</th><th>대응</th></tr></thead>
+    <tbody>
+    <tr><td class="h">상품 정보 표준 없이 서비스부터 출시</td><td><span class="chip cr" style="font-size:13px">높음</span></td><td>1분기 안에 표준을 못 끝내면 2분기 서비스 출시를 미룬다</td></tr>
+    <tr><td class="h">AI 분석을 아무도 안 씀 (캐즘)</td><td><span class="chip cr" style="font-size:13px">높음</span></td><td>노령견 보호자부터 공략, 무료 제공, 결과를 바로 케어 상품과 연결</td></tr>
+    <tr><td class="h">이미지 AI가 ‘진단’으로 오해</td><td><span class="chip cb" style="font-size:13px">중간</span></td><td>‘케어 참고 정보’로만 표현, 이상 신호면 추천 중단·병원 안내, 출시 전 법률 검토</td></tr>
+    <tr><td class="h">사료 소분이 법적으로 불가</td><td><span class="chip cb" style="font-size:13px">중간</span></td><td>브랜드 공식 체험팩 10종을 묶는 방식으로 미리 대안 설계</td></tr>
+    <tr><td class="h">쿠팡의 더 큰 규모</td><td><span class="chip cb" style="font-size:13px">중간</span></td><td>이기려 하지 않고 다른 자리에: 샘플러 반응·사진 데이터·생애주기로 선점</td></tr>
+    </tbody>
+  </table>
+  <div class="dec a"><b>그래서 결정한 것</b><span>2027년 1분기에 펫 프로필과 상품 정보 표준을 먼저 끝낸다. 이 두 기술 기반이 모든 서비스의 전제다</span></div>
+  <style>.rmg{display:grid;grid-template-columns:70px repeat(5,1fr) 1.2fr;gap:6px}.rl{display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:var(--sub)}.tc,.bc{border-radius:10px;padding:10px 12px;font-size:14.5px;line-height:1.4}.tc{background:var(--bbg);color:var(--b);font-weight:500}.bc{background:var(--redbg);color:var(--redk)}.qq{text-align:center;font-family:var(--num);font-weight:800;font-size:14px;color:var(--redk)}</style>
+</section>
+
+<section id="s27" class="sec red" data-f="END" data-who="총괄" data-red="1">
+  <div style="font-size:18px;opacity:.9" class="a">결론</div>
+  <h2 class="a" style="font-size:74px;line-height:1.14;letter-spacing:-.04em;margin:22px 0 34px;font-weight:700">펫 케어 서비스와 AI 기술을<br>커머스로 시장에 확산시킨다</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;flex:1">
+    <div class="a cc"><span>무엇을 확산시키나</span><b>두 가지 핵심 기술</b><p>펫 프로필 케어 추천 엔진과 이미지 AI 케어 분석. 먹이·건강·위생·생활 케어 전반으로 확장</p></div>
+    <div class="a cc"><span>어떻게 확산시키나</span><b>캐즘을 넘는 순서</b><p>노령견 보호자라는 첫 핀 → 완전 완비 제품 → 무료 분석과 유통망 장악으로 토네이도. 커머스는 기술을 매일 쓰게 만드는 채널</p></div>
+    <div class="a cc"><span>무엇으로 남기나</span><b>쌓이는 데이터</b><p>펫 프로필 등록 50만 명, 쿠폰 없는 재구매율 60%, 오픈마켓 펫 1위. 데이터가 쌓일수록 따라오기 어렵다</p></div>
+  </div>
+  <div class="a" style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:24px"><span style="font-size:30px;font-weight:700">감사합니다. 질문 받겠습니다</span><span class="num" style="font-size:22px;font-weight:800">11PET</span></div>
+  <style>.cc{border-top:3px solid #fff;padding-top:14px}.cc span{font-size:16px;opacity:.85}.cc b{display:block;font-size:26px;margin:6px 0 10px}.cc p{font-size:17.5px;line-height:1.55;opacity:.92}</style>
+</section>
+
+<section id="a1" class="sec" data-f="B1" data-who="부록">
+  <div class="hd"><span class="tool k">부록 1 — 예상 질문과 답변</span></div>
+  <h2 class="tt a" style="font-size:36px">이런 질문에는 이렇게 답한다</h2>
+  <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:8px 26px;min-height:0">
+    <div class="qa a"><b>Q. 쿠팡도 수의사 추천 서비스가 있는데 뭐가 다른가?</b><p>쿠팡은 설문 시점 1회 추천. 11PET은 생애주기에 맞춰 계속 제안하고, 샘플러 반응·케어 사진처럼 쌓이는 데이터를 쓴다</p></div>
+    <div class="qa a"><b>Q. 펫 전문몰도 겨우 흑자인데 되는 근거는?</b><p>펫프렌즈는 재구매율 85%에도 이익률 0.4%. 문제는 비용 구조다. 11PET은 배송·고객 기반을 11번가와 나눠 쓴다</p></div>
+    <div class="qa a"><b>Q. 사료를 나눠 담아 파는 건 불법 아닌가?</b><p>사료관리법상 제조로 볼 수 있어 법률 검토가 먼저다. 안 되면 브랜드 공식 체험팩을 묶는 방식으로 바꾼다</p></div>
+    <div class="qa a"><b>Q. 이미지 AI 분석은 진단 아닌가?</b><p>진단이 아니라 참고 정보다. 이상 신호가 보이면 상품 추천을 멈추고 병원 방문을 안내한다</p></div>
+    <div class="qa a"><b>Q. 고객이 왜 반려동물 정보를 입력하나?</b><p>세 서비스 모두 정보를 넣어야 작동한다. 입력하면 바로 혜택(맞춤 추천·샘플러)이 보이게 설계한다</p></div>
+    <div class="qa a"><b>Q. 1등이라는 목표가 현실적인가?</b><p>시장 전체가 아니라 ‘오픈마켓 중 펫 1위 + 세부 카테고리 1위’로 범위를 좁혔다. 2년 안에 측정할 수 있는 정의다</p></div>
+    <div class="qa a"><b>Q. 커머스 사업 아닌가? 왜 기술마케팅인가?</b><p>핵심은 추천 엔진과 이미지 AI라는 기술의 확산이다. 커머스는 기술을 매일 쓰게 만드는 확산 채널이고, 수익은 케어 상품으로 회수한다</p></div>
+    <div class="qa a"><b>Q. 보험까지 하는 건 무리 아닌가?</b><p>보험사를 만들지 않고 비교·가입만 연결한다. 가입률 1%대라 연결 채널이 필요한 시장이며, 2차 연도에 시작한다</p></div>
+  </div>
+  <style>.qa{border-bottom:1px solid var(--line);padding:6px 0 10px}.qa b{font-size:18px}.qa p{font-size:16px;color:var(--sub);line-height:1.45;margin-top:4px}</style>
+</section>
+
+<section id="a2" class="sec" data-f="B1" data-who="부록">
+  <div class="hd"><span class="tool k">부록 2 — 경쟁 서비스 비교</span></div>
+  <h2 class="tt a" style="font-size:36px">이미 있는 펫 서비스들</h2>
+  <table class="tb sm a">
+    <thead><tr><th style="width:160px">기업</th><th style="width:300px">서비스</th><th>특징</th></tr></thead>
+    <tbody>
+    <tr><td class="h">쿠팡</td><td>로켓펫닥터 (2023. 5, 2024. 11 개편)</td><td>반려동물 정보·건강 설문 → 수의사가 사료 추천, 연동 브랜드 9개 → 40여 개, 48시간 내 1:1 답변</td></tr>
+    <tr><td class="h">펫프렌즈</td><td>펫 전문 쇼핑몰</td><td>2025년 거래액 1,515억·매출 1,285억, 첫 연간 흑자(영업이익률 0.4%), 재구매율 85%. 최대주주 IMM PE가 매각 추진</td></tr>
+    <tr><td class="h">어바웃펫</td><td>펫 전문 쇼핑몰 (GS리테일)</td><td>2024년 매출 284억·순손실 159억, 자본잠식. 2025년 매각 추진</td></tr>
+    <tr><td class="h">핏펫</td><td>검사키트 ‘어헤드’, 핏펫몰</td><td>반려동물 정보 기반 추천 커머스, 2025년 NH농협손해보험과 펫보험 공동 개발</td></tr>
+    <tr><td class="h">카카오페이</td><td>펫보험 비교 (2024. 7)</td><td>반려동물 정보 등록 후 여러 보험사 상품 비교·가입</td></tr>
+    <tr><td class="h" style="color:var(--redk)">11번가 현재</td><td>펫 정기 할인 행사</td><td>행사 중심. 펫 프로필·펫 전용 화면·정기배송 없음</td></tr>
+    </tbody>
+  </table>
+  <p class="fn a">우리의 차별점은 ‘펫관’ 자체가 아니라 관 안의 관 구조와 쌓이는 데이터 서비스(샘플러 반응, 케어 사진, 생애주기)</p>
+</section>
+
+<section id="a3" class="sec" data-f="B1" data-who="부록">
+  <div class="hd"><span class="tool k">부록 3 — 출처</span></div>
+  <h2 class="tt a" style="font-size:36px">자료 출처</h2>
+  <div class="a" style="display:grid;grid-template-columns:1fr 1fr;gap:8px 30px;font-size:15.5px;line-height:1.5">
+    <p>반려동물 산업 규모 1.9조·3.0조·6.0조: 한국농촌경제연구원 (코리아비즈리뷰 재인용)</p>
+    <p>반려가구 552만(25.7%): KB금융지주 경영연구소 ‘2023 한국 반려동물보고서’</p>
+    <p>반려동물 연관산업 육성대책: 농림축산식품부 (2023. 8. 9)</p>
+    <p>펫보험 가입률·취급 보험사: SBS Biz (2024. 3), 뉴스토마토 (2024. 6)</p>
+    <p>카카오페이·네이버페이 펫보험 비교: 이코노미스트 (2024. 7), 토요경제 (2024. 10)</p>
+    <p>쿠팡 로켓펫닥터: 벤처스퀘어 (2023. 5), 바이라인네트워크 (2024. 11)</p>
+    <p>펫프렌즈 2025 실적: 마이데일리 (2026. 3. 12)</p>
+    <p>어바웃펫 매각·실적: 스마트투데이 (2025. 10. 14)</p>
+    <p>핏펫 사업·펫보험 협업: 벤처스퀘어 (2023. 11), 유니콘팩토리 (2025. 6)</p>
+  </div>
+  <p class="fn a" style="margin-top:22px">가상 설문과 ‘가정’으로 표시한 수치는 과제 허용 범위의 가상 데이터이며, 각 슬라이드에 산출 근거를 함께 적었다</p>
+</section>
+</main>
+<script>
+(function(){
+'use strict';
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(s,r){return (r||document).querySelector(s);}
+function $$(s,r){return [].slice.call((r||document).querySelectorAll(s));}
+function fmt(v,d){return v.toLocaleString('ko-KR',{minimumFractionDigits:d||0,maximumFractionDigits:d||0});}
+
+/* ---------- illustrations ---------- */
+function shade(hex,amt){var n=parseInt(hex.slice(1),16),r=(n>>16)+amt,g=((n>>8)&255)+amt,b=(n&255)+amt;r=Math.max(0,Math.min(255,r));g=Math.max(0,Math.min(255,g));b=Math.max(0,Math.min(255,b));return '#'+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1);}
+function pet(type,c,x,y,s,mood){
+  c=c||'#E8B77A';x=x||0;y=y||0;s=s||1;var d=shade(c,-40),eye='#2A2420';
+  var m=mood==='happy'?'<path d="M42 66 Q50 74 58 66" stroke="'+eye+'" stroke-width="2.6" fill="none" stroke-linecap="round"/>':'<path d="M44 67 Q50 71 56 67" stroke="'+eye+'" stroke-width="2.4" fill="none" stroke-linecap="round"/>';
+  var g;
+  if(type==='cat'){
+    g='<path d="M22 44 L26 12 L46 30 Z" fill="'+d+'"/><path d="M78 44 L74 12 L54 30 Z" fill="'+d+'"/><circle cx="50" cy="54" r="31" fill="'+c+'"/><path d="M27 20 L31 35 L40 29Z" fill="#F7B6C0"/><path d="M73 20 L69 35 L60 29Z" fill="#F7B6C0"/><ellipse cx="39" cy="50" rx="4" ry="5" fill="'+eye+'"/><ellipse cx="61" cy="50" rx="4" ry="5" fill="'+eye+'"/><path d="M47 60 L53 60 L50 64Z" fill="#E8838F"/>'+m+'<g stroke="'+eye+'" stroke-width="1.4" opacity=".6"><line x1="18" y1="60" x2="36" y2="62"/><line x1="18" y1="68" x2="36" y2="66"/><line x1="82" y1="60" x2="64" y2="62"/><line x1="82" y1="68" x2="64" y2="66"/></g>';
+  }else{
+    g='<ellipse cx="22" cy="46" rx="13" ry="24" fill="'+d+'" transform="rotate(18 22 46)"/><ellipse cx="78" cy="46" rx="13" ry="24" fill="'+d+'" transform="rotate(-18 78 46)"/><circle cx="50" cy="52" r="31" fill="'+c+'"/><ellipse cx="50" cy="66" rx="16" ry="12" fill="#FFF6EC"/><circle cx="39" cy="48" r="4" fill="'+eye+'"/><circle cx="61" cy="48" r="4" fill="'+eye+'"/><circle cx="40.3" cy="46.6" r="1.2" fill="#fff"/><circle cx="62.3" cy="46.6" r="1.2" fill="#fff"/><ellipse cx="50" cy="60" rx="5.5" ry="4" fill="'+eye+'"/>'+m;
+  }
+  return '<g transform="translate('+x+' '+y+') scale('+s+')">'+g+'</g>';
+}
+function petSVG(type,c,mood){return '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">'+pet(type,c,0,0,1,mood)+'</svg>';}
+var PC=['#E8B77A','#F4E3C8','#C98B5B','#9A9A9A','#F0D9A8','#6E5644','#D9C7B0'];
+function pouch(x,y,c,n){return '<g transform="translate('+x+' '+y+')"><rect width="34" height="46" rx="5" fill="'+c+'"/><rect x="4" y="6" width="26" height="8" rx="2" fill="rgba(255,255,255,.6)"/><text x="17" y="36" font-size="15" font-weight="800" text-anchor="middle" fill="#fff" font-family="Archivo,Arial">'+n+'</text></g>';}
+function scene(n,wide){
+  var W=wide?320:300,H=wide?180:300,o='';
+  var cx=W/2;
+  if(n==='sampler'){o='<rect width="'+W+'" height="'+H+'" fill="#FFEDEF"/><circle cx="'+(W*0.78)+'" cy="'+(H*0.2)+'" r="'+(H*0.12)+'" fill="#FFD3D8"/>'+pet('dog','#E8B77A',W*0.08,H*0.32,H/190,'happy')+'<g transform="translate('+(W*0.55)+' '+(H*0.42)+') scale('+(H/300)+')"><rect width="120" height="90" rx="10" fill="#F43142"/><rect x="0" y="0" width="120" height="22" rx="10" fill="#C4172A"/><text x="60" y="68" font-size="40" font-weight="900" text-anchor="middle" fill="#fff" font-family="Archivo,Arial">10</text></g>';}
+  else if(n==='senior'){o='<rect width="'+W+'" height="'+H+'" fill="#E6EEFB"/>'+pet('dog','#D8D0C2',W*0.06,H*0.18,H/150)+'<g transform="translate('+(W*0.62)+' '+(H*0.12)+') scale('+(H/300)+')"><rect width="96" height="170" rx="16" fill="#17161C"/><rect x="8" y="14" width="80" height="140" rx="8" fill="#fff"/><rect x="18" y="34" width="60" height="44" rx="6" fill="#E6EEFB"/><rect x="18" y="40" width="60" height="4" fill="#2459C2" opacity=".7"/><text x="48" y="100" font-size="13" font-weight="800" text-anchor="middle" fill="#2459C2" font-family="IBM Plex Sans KR,sans-serif">AI 케어</text><rect x="18" y="112" width="60" height="8" rx="4" fill="#E5E3EB"/><rect x="18" y="112" width="44" height="8" rx="4" fill="#23935A"/></g>';}
+  else if(n==='eat'){o='<rect width="'+W+'" height="'+H+'" fill="#E5F4EB"/>'+pet('dog','#F0D9A8',cx-H*0.3,H*0.06,H/170,'happy')+'<ellipse cx="'+cx+'" cy="'+(H*0.86)+'" rx="'+(H*0.3)+'" ry="'+(H*0.1)+'" fill="#23935A"/><ellipse cx="'+cx+'" cy="'+(H*0.82)+'" rx="'+(H*0.24)+'" ry="'+(H*0.05)+'" fill="#C98B5B"/><text x="'+(W*0.84)+'" y="'+(H*0.28)+'" font-size="'+(H*0.16)+'" fill="#F43142">♥</text>';}
+  else if(n==='cal'){o='<rect width="'+W+'" height="'+H+'" fill="#FFF0D2"/><g transform="translate('+(W*0.5)+' '+(H*0.16)+') scale('+(H/300)+')"><rect width="120" height="130" rx="12" fill="#fff"/><rect width="120" height="34" rx="12" fill="#F43142"/><text x="60" y="24" font-size="16" font-weight="800" text-anchor="middle" fill="#fff" font-family="IBM Plex Sans KR,sans-serif">D-DAY</text><text x="60" y="92" font-size="46" font-weight="900" text-anchor="middle" fill="#17161C" font-family="Archivo,Arial">1살</text></g>'+pet('dog','#E8B77A',W*0.06,H*0.36,H/170,'happy')+'<text x="'+(W*0.62)+'" y="'+(H*0.86)+'" font-size="'+(H*0.12)+'">🎂</text>';}
+  else if(n==='cat'){o='<rect width="'+W+'" height="'+H+'" fill="#EEEAFD"/>'+pet('cat','#9A9A9A',W*0.1,H*0.22,H/150,'happy')+'<g transform="translate('+(W*0.62)+' '+(H*0.18)+')"><circle r="'+(H*0.13)+'" cx="'+(H*0.13)+'" cy="'+(H*0.13)+'" fill="#fff" stroke="#F43142" stroke-width="4"/><text x="'+(H*0.13)+'" y="'+(H*0.155)+'" font-size="'+(H*0.08)+'" font-weight="900" text-anchor="middle" fill="#C4172A" font-family="Archivo,Arial">82%</text></g>';}
+  else if(n==='box'){o='<rect width="'+W+'" height="'+H+'" fill="#2A2830"/><g transform="translate('+(W*0.2)+' '+(H*0.3)+') scale('+(H/260)+')"><rect y="40" width="170" height="120" rx="10" fill="#F43142"/><rect class="lid" y="10" width="170" height="34" rx="8" fill="#C4172A"/><text x="85" y="122" font-size="46" font-weight="900" text-anchor="middle" fill="#fff" font-family="Archivo,Arial">11PET</text></g>';}
+  else if(n==='pouches'){var cs=['#F43142','#2459C2','#23935A','#B88A2E','#5F43CF','#E8838F','#2E8FA3','#C98B5B','#6E5644','#F4A62A'],p='';for(var i=0;i<10;i++){var r=(i-4.5)*9;p+='<g transform="rotate('+r+' 150 260)">'+pouch(133,90,cs[i],i+1)+'</g>';}o='<rect width="'+W+'" height="'+H+'" fill="#1D1C21"/><g transform="scale('+(W/300)+' '+(H/300)+')">'+p+'</g>';}
+  return '<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">'+o+'</svg>';
+}
+var ICON={bag:'<rect x="22" y="18" width="56" height="70" rx="8" fill="#F43142"/><rect x="30" y="28" width="40" height="12" rx="3" fill="#fff" opacity=".7"/><circle cx="50" cy="62" r="11" fill="#fff" opacity=".85"/>',
+ bottle:'<rect x="36" y="14" width="28" height="14" rx="3" fill="#2459C2"/><rect x="28" y="26" width="44" height="62" rx="10" fill="#7FA6F2"/><rect x="34" y="46" width="32" height="20" rx="3" fill="#fff"/>',
+ chew:'<path d="M28 42 a10 10 0 1 1 12-12 l20 20 a10 10 0 1 1 12 12 a10 10 0 1 1-12 12 l-20-20 a10 10 0 1 1-12-12z" fill="#F0D9A8" stroke="#C98B5B" stroke-width="3"/>',
+ comb:'<rect x="18" y="30" width="64" height="16" rx="6" fill="#5F43CF"/><g fill="#A794F5">'+[0,1,2,3,4,5,6].map(function(i){return '<rect x="'+(22+i*8.6)+'" y="46" width="4" height="26" rx="2"/>';}).join('')+'</g>',
+ kit:'<rect x="20" y="22" width="60" height="56" rx="8" fill="#23935A"/><rect x="44" y="34" width="12" height="32" fill="#fff"/><rect x="34" y="44" width="32" height="12" fill="#fff"/>',
+ shield:'<path d="M50 14 L80 26 V50 C80 70 66 82 50 88 C34 82 20 70 20 50 V26Z" fill="#5F43CF"/><path d="M38 50 l8 8 l16-18" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/>',
+ house:'<path d="M18 50 L50 22 L82 50 V84 H18Z" fill="#B88A2E"/><rect x="42" y="58" width="16" height="26" fill="#fff"/>',
+ scissors:'<circle cx="32" cy="70" r="12" fill="none" stroke="#E8838F" stroke-width="6"/><circle cx="68" cy="70" r="12" fill="none" stroke="#E8838F" stroke-width="6"/><path d="M38 60 L66 18 M62 60 L34 18" stroke="#5B5866" stroke-width="6" stroke-linecap="round"/>',
+ bowl:'<ellipse cx="50" cy="66" rx="34" ry="14" fill="#B88A2E"/><ellipse cx="50" cy="60" rx="28" ry="8" fill="#F3EFE4"/>',
+ harness:'<path d="M24 30 Q50 70 76 30" stroke="#1D1C21" stroke-width="10" fill="none" stroke-linecap="round"/><circle cx="50" cy="56" r="8" fill="#E0B95E"/>',
+ carrier:'<rect x="16" y="34" width="68" height="46" rx="12" fill="#1D1C21"/><path d="M34 34 Q50 12 66 34" stroke="#E0B95E" stroke-width="6" fill="none"/><rect x="26" y="44" width="48" height="26" rx="6" fill="#3A3842"/>',
+ pad:'<rect x="18" y="24" width="64" height="52" rx="6" fill="#E6EEFB" stroke="#7FA6F2" stroke-width="3"/><path d="M26 50 h48" stroke="#7FA6F2" stroke-width="3" stroke-dasharray="6 4"/>',
+ box:'<rect x="18" y="34" width="64" height="48" rx="6" fill="#F43142"/><rect x="18" y="26" width="64" height="14" rx="4" fill="#C4172A"/><text x="50" y="70" font-size="20" font-weight="900" text-anchor="middle" fill="#fff" font-family="Archivo,Arial">10</text>',
+ stetho:'<path d="M30 18 V44 a20 20 0 0 0 40 0 V18" stroke="#2459C2" stroke-width="6" fill="none"/><circle cx="74" cy="72" r="9" fill="#7FA6F2"/><path d="M50 64 V72 a14 14 0 0 0 24 0" stroke="#2459C2" stroke-width="5" fill="none"/>'};
+function icon(k){return '<svg viewBox="0 0 100 100" class="ic">'+(ICON[k]||ICON.bag)+'</svg>';}
+$$('.pet[data-pet]').forEach(function(e){e.innerHTML=petSVG(e.getAttribute('data-pet'),e.getAttribute('data-c'),'happy');});
+$$('[data-scene]').forEach(function(e){var w=e.classList.contains('wide');e.insertAdjacentHTML('afterbegin',scene(e.getAttribute('data-scene'),w));});
+
+/* ---------- page zoom & navigation ---------- */
+var page=$('#page');
+function fit(){var z=window.innerWidth/1600;page.style.zoom=z;document.documentElement.style.setProperty('--z',z);}
+window.addEventListener('resize',fit);fit();
+var secs=$$('#page > section');
+var SEC={'G':'','0F':'01 신사업 정의','1F':'02 외부 환경 분석','2F':'03 내부 분석 및 전략 방향','3F':'04 차별화 방향','4F':'05 마케팅 소구점','5F':'06 달성 방안','END':'결론','B1':'부록'};
+var CH={'0F':'c1','1F':'c2','2F':'c3','3F':'c4','4F':'c5','5F':'c6','END':'c6','B1':'a1'};
+var cur=0;
+function current(){var lim=window.innerHeight*0.38,i=0;for(var k=0;k<secs.length;k++){if(secs[k].getBoundingClientRect().top<=lim)i=k;}return i;}
+function onScroll(){
+  cur=current();var s=secs[cur],f=s.getAttribute('data-f'),w=s.getAttribute('data-who');
+  $('#who').textContent=(SEC[f]||'')+(w&&w!=='부록'?'  ·  발표 '+w:'');
+  $$('#chap a').forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+CH[f]);});
+  var h=document.documentElement,p=(h.scrollTop||document.body.scrollTop)/((h.scrollHeight-h.clientHeight)||1);
+  $('#prog i').style.width=(p*100)+'%';
+  document.body.classList.toggle('onred',!!s.getAttribute('data-red')&&s.getBoundingClientRect().top<=60);
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+function goTo(i){i=Math.max(0,Math.min(secs.length-1,i));secs[i].scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});}
+function next(){var s=secs[cur],r=s.getBoundingClientRect();if(r.bottom>window.innerHeight+60){window.scrollBy({top:Math.min(window.innerHeight*0.8,r.bottom-window.innerHeight+20),behavior:reduce?'auto':'smooth'});}else goTo(cur+1);}
+function prev(){var s=secs[cur],r=s.getBoundingClientRect();if(r.top<-80){window.scrollBy({top:Math.max(-window.innerHeight*0.8,r.top-64),behavior:reduce?'auto':'smooth'});}else goTo(cur-1);}
+document.addEventListener('keydown',function(e){
+  var t=e.target,tag=(t.tagName||'').toLowerCase();
+  if(tag==='input'||tag==='select'||tag==='textarea')return;
+  var k=e.key;
+  if(k==='ArrowRight'||k==='PageDown'||(k===' '&&tag!=='button')){e.preventDefault();next();}
+  else if(k==='ArrowLeft'||k==='PageUp'){e.preventDefault();prev();}
+  else if(k==='Home'){e.preventDefault();goTo(0);}else if(k==='End'){e.preventDefault();goTo(secs.length-1);}
+  else if(k==='f'||k==='F'){try{if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}catch(err){}}
+});
+
+/* ---------- reveal ---------- */
+function count(el){var tg=parseFloat(el.getAttribute('data-count')),dec=parseInt(el.getAttribute('data-dec')||'0',10),suf=el.getAttribute('data-suf')||'';if(reduce){el.textContent=fmt(tg,dec)+suf;return;}var t0=null;function st(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/1200,1),e=1-Math.pow(1-p,3);el.textContent=fmt(tg*e,dec)+suf;if(p<1)requestAnimationFrame(st);}requestAnimationFrame(st);}
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(!x.isIntersecting)return;var s=x.target;io.unobserve(s);
+  $$('.a',s).forEach(function(e,i){if(reduce)e.classList.add('in');else setTimeout(function(){e.classList.add('in');},80+i*70);});
+  $$('[data-count]',s).forEach(function(el){setTimeout(function(){count(el);},300);});
+  $$('.grow',s).forEach(function(g){var h=g.style.height;g.style.height='0';void g.offsetWidth;g.style.transition=reduce?'none':'height 1.1s cubic-bezier(.2,.7,.2,1) .4s';g.style.height=h;});
+  s.dispatchEvent(new CustomEvent('seen'));
+});},{threshold:0.18});
+secs.forEach(function(s){io.observe(s);});
+
+/* ---------- positioning map ---------- */
+var POS={mall:['종합몰 펫 카테고리','상품은 많지만 품종·나이별 정리가 없고 행사 중심이다. 펫 전용 경험이 약하다'],
+ cp:['쿠팡 로켓펫닥터','2023년 출시, 2024년 11월 개편. 반려동물 정보와 건강 설문(배변 상태 포함)으로 수의사가 사료·영양제를 추천. 연동 브랜드 40여 개. 설문 시점의 1회 추천이 중심'],
+ pf:['펫프렌즈','국내 1위 펫 전문몰. 2025년 매출 1,285억, 첫 연간 흑자(영업이익률 0.4%), 재구매율 85%. 최대주주가 매각 추진'],
+ fp:['핏펫','검사키트 ‘어헤드’와 핏펫몰 운영, 2025년 NH농협손해보험과 펫보험 공동 개발. 건강 데이터는 강하지만 독립 쇼핑몰이라 고객 확보 비용 부담'],
+ vet:['동물병원','신뢰는 가장 높지만 직접 방문해야 하고 가격이 높다. 11PET에게는 경쟁이 아니라 협력(B2B2C) 대상'],
+ us:['11PET','펫 프로필 추천 엔진과 이미지 AI 케어 분석으로 맞춤 케어와 데이터를 결합. 큰 플랫폼의 고객·배송망을 함께 쓴다']};
+$$('.dot[data-c]').forEach(function(d){d.setAttribute('role','button');d.setAttribute('tabindex','0');function sel(){$$('.dot[data-c]').forEach(function(x){x.classList.remove('sel');});d.classList.add('sel');var v=POS[d.getAttribute('data-c')],box=$('#posInfo');box.innerHTML='<b>'+v[0]+'</b><p>'+v[1]+'</p>';box.classList.remove('flash');void box.offsetWidth;box.classList.add('flash');}d.addEventListener('click',sel);d.addEventListener('keydown',function(e){if(e.key==='Enter'){e.stopPropagation();sel();}});});
+
+/* ---------- KPI simulator ---------- */
+(function(){var c=$('#kpiCtl');if(!c)return;var D={m:4.2,sc:30,sr:20,br:20,pr:26900};
+function v(k){return parseFloat($('[data-k="'+k+'"]',c).value);}
+function run(){var m=v('m'),sc=v('sc')/100,sr=v('sr')/100,br=v('br')/100,pr=v('pr');
+ $('[data-o="m"]',c).textContent=fmt(m,1)+'만 명';$('[data-o="sc"]',c).textContent=Math.round(sc*100)+'%';$('[data-o="sr"]',c).textContent=Math.round(sr*100)+'%';$('[data-o="br"]',c).textContent=Math.round(br*100)+'%';$('[data-o="pr"]',c).textContent=fmt(pr)+'원';
+ var reg=m*12,subs=reg*sr,box=subs*br,rev=box*10000*pr*12/1e8,rep=Math.min(92,40+sr*60+sc*27),op=-3+(reg-50.4)*0.08+(sr-0.2)*20+(sc-0.3)*8+(rev-64.6)/64.6*1.5;op=Math.max(-15,Math.min(15,op));
+ var R=function(k,t){$('[data-r="'+k+'"]').textContent=t;};
+ R('reg',fmt(reg,1)+'만');R('subs',fmt(subs,1)+'만');R('box',fmt(box,2)+'만');R('rev',fmt(rev)+'억');R('rep',fmt(rep,1)+'%');R('op',(op>0?'+':'')+fmt(op,1)+'%');
+ $('[data-r="op"]').style.color=op>=0?'var(--g)':'var(--redk)';
+ var bars=[['펫 프로필 등록',reg/50],['정기배송 가입',subs/10],['케어 박스 구독',box/2],['재구매율',rep/60]];
+ $('#kpiBars').innerHTML=bars.map(function(b){var p=Math.round(b[1]*100),w=Math.min(100,p/1.5);return '<div class="kb"><span>'+b[0]+'</span><div class="bar"><i style="width:'+w+'%;'+(p>=100?'':'background:var(--sub)')+'"></i><em style="left:'+(100/1.5)+'%"></em></div><b class="num" style="color:'+(p>=100?'var(--g)':'var(--sub)')+'">'+p+'%</b></div>';}).join('');}
+$$('input',c).forEach(function(i){i.addEventListener('input',run);});
+$('#kpiReset').addEventListener('click',function(){Object.keys(D).forEach(function(k){$('[data-k="'+k+'"]',c).value=D[k];});run();});run();})();
+
+/* ---------- chasm ---------- */
+(function(){var rg=$('#czRange');if(!rg)return;
+var pins=[[150,212],[125,166],[175,166],[100,120],[150,120],[200,120],[75,74],[125,74],[175,74],[225,74]],th=[15.5,19,20,22,23,24,27,28,29,30];
+$('#czPins').innerHTML=pins.map(function(p,i){return '<g transform="translate('+(p[0]-14)+' '+(p[1]-40)+')"><g class="pin" id="pin'+i+'"><path d="M14 0 C22 0 22 10 18 16 C26 22 28 36 22 44 L6 44 C0 36 2 22 10 16 C6 10 6 0 14 0Z" fill="'+(i===0?'#F43142':'#fff')+'" stroke="#5B5866" stroke-width="2"/><rect x="7" y="13" width="14" height="3" fill="#F43142"/><text x="14" y="36" font-size="11" font-weight="800" text-anchor="middle" fill="'+(i===0?'#fff':'#5B5866')+'" font-family="Archivo,Arial">'+(i+1)+'</text></g></g>';}).join('')+'<circle id="czBall" cx="150" cy="248" r="12" fill="#1D1C21" opacity="0"/>';
+var ST=[[0,'출시 전','재생을 누르거나 막대를 움직여 보세요'],[0.1,'혁신 수용자','펫 인플루언서, 새 기술을 좋아하는 보호자가 무료 AI 분석을 먼저 써 본다'],[6,'얼리어답터','노령견 보호자 일부가 효과를 보고 쓰기 시작한다'],[12,'캐즘','일반 보호자는 ‘남들도 쓰는지’를 본다. 사용자 증가가 멈춘다'],[15,'첫 핀 공략','노령견 보호자에게 완전 완비 제품(분석 + 케어 상품 + 정기배송 + 병원 연결)을 집중한다'],[18,'볼링앨리','노령묘, 비만 관리, 알레르기 보호자로 비슷한 고민을 가진 시장이 연쇄로 넘어간다'],[27,'토네이도','실용주의자가 한꺼번에 몰린다. 단순화·유통망 장악·사용자 기반으로 1등을 굳힌다']];
+function x(m){if(m<=0)return 0;if(m<=6)return 10+190*(m/6);if(m<=12)return 200+62*((m-6)/6);if(m<=15)return 262;if(m<=27)return 268+372*((m-15)/12);return 640+410*Math.min(1,(m-27)/9);}
+function draw(m){$('#czRect').setAttribute('width',x(m));$('#czMonth').textContent=Math.round(m)+'개월';var s=ST[0];ST.forEach(function(t){if(m>=t[0])s=t;});$('#czStage').innerHTML='<b>'+s[1]+'</b><p>'+s[2]+'</p>';$('#czStage').classList.toggle('stall',s[1]==='캐즘');th.forEach(function(t,i){$('#pin'+i).classList.toggle('down',m>=t);});$('#czBall').setAttribute('opacity',m>=14.5&&m<16?1:0);$('#czBall').setAttribute('cy',m>=14.5&&m<16?248-(m-14.5)*24:248);$('#czTor').setAttribute('opacity',m>=27?1:0);}
+var play=false,raf=null,last=0,cm=0;
+function tick(ts){if(!play)return;if(!last)last=ts;cm=cm+(ts-last)/1000*(36/16);var m=cm;last=ts;if(m>=36){m=36;play=false;$('#czPlay').textContent='↻ 다시';}rg.value=m;draw(m);if(play)raf=requestAnimationFrame(tick);}
+$('#czPlay').addEventListener('click',function(){if(play){play=false;this.textContent='▶ 재생';return;}if(cm>=36){cm=0;rg.value=0;}play=true;last=0;this.textContent='❚❚ 일시정지';raf=requestAnimationFrame(tick);});
+rg.addEventListener('input',function(){play=false;cm=parseFloat(rg.value);$('#czPlay').textContent='▶ 재생';draw(cm);});draw(0);})();
+
+/* ---------- elevator ---------- */
+(function(){var box=$('#elvIn');if(!box)return;
+var F=[{k:'4F',n:'생활 케어관',chip:'2차 연도',c:'var(--p)',bg:'var(--pbg)',con:'보험을 직접 만들지 않고 비교·가입을 연결하고, 병원·미용·호텔 예약까지 이어준다',t:'서비스 확장, 전환비용이 가장 높은 영역',p:'수수료 모델',s:'보험 비교·가입, 케어 서비스 예약',pr:[['shield','펫보험 비교·가입'],['stetho','동물병원 예약'],['scissors','미용·목욕 예약'],['house','펫 호텔·돌봄']]},
+{k:'3F',n:'프리미엄관',c:'#E0B95E',bg:'#1D1C21',dark:1,con:'디자인·브랜드 중심 용품과 해외 브랜드. 할인 노출을 꺼리는 브랜드를 위한 전용 공간',t:'형태·디자인 차별화',p:'고가 (할인가 비노출)',s:'프리미엄 브랜드 전용 입점',pr:[['harness','디자이너 하네스'],['bowl','원목 식기'],['carrier','프리미엄 이동장'],['bag','해외 브랜드 사료']]},
+{k:'2F',n:'건강 케어관',c:'var(--b)',bg:'var(--bbg)',con:'영양제·검사키트·위생 케어 용품. 펫 케어 스타트업의 입점 채널',t:'새로운 기능 + 데이터로 고객 붙잡기',p:'고가, 반복 구매',s:'이미지 AI 케어 분석 → 맞춤 케어 상품',pr:[['bottle','관절 영양제'],['bottle','장 건강 유산균'],['kit','가정용 검사키트'],['chew','덴탈 케어 껌']]},
+{k:'1F',n:'큐레이션 식음료관',c:'var(--g)',bg:'var(--gbg)',con:'펫 프로필로 걸러진 사료·간식만 진열한다. 다 파는 곳이 아니라 골라주는 곳',t:'성능(신뢰) + 사용 편의성(선택 부담 제거)',p:'중가 + 1만원대 체험',s:'생애주기 캘린더, 사료 샘플러 10종',pr:[['box','사료 샘플러 10종'],['bag','성견 맞춤 사료'],['chew','저알러지 간식'],['bag','노령견 사료']]},
+{k:'B1',n:'관 밖: 일반 펫 카테고리',c:'var(--mute)',bg:'var(--soft)',con:'최저가 사료와 소모품은 여기에 둔다. 11PET은 가격 경쟁을 하지 않는다',t:'범용화 위험 회피',p:'저가',s:'기존 오픈마켓 판매, 월초 정기 행사',pr:[['bag','대용량 사료'],['pad','배변패드'],['pad','고양이 모래']]}];
+var cur='1F',btns=$('#elvBtns');
+btns.innerHTML=F.map(function(f){return '<button type="button" data-k="'+f.k+'">'+f.k+' <small>'+f.n.replace('관 밖: ','')+'</small></button>';}).join('');
+function render(f){var tx=f.dark?'#F1F0F4':'var(--ink)',sub=f.dark?'#C9C6D2':'var(--sub)';box.parentNode.style.background=f.bg;box.innerHTML='<div class="fl-top"><b style="color:'+f.c+'">'+f.k+'</b><h3 style="color:'+tx+'">'+f.n+'</h3>'+(f.chip?'<span class="chip cp">'+f.chip+'</span>':'')+'</div><p class="fl-con" style="color:'+sub+'">'+f.con+'</p><div class="fl-grid"><div><span>차별화 유형</span><b>'+f.t+'</b></div><div><span>가격대</span><b>'+f.p+'</b></div><div><span>대표 서비스</span><b style="color:var(--redk)">'+f.s+'</b></div></div><p style="font-size:15px;color:'+sub+';margin-top:4px">진열 상품</p><div class="shelf">'+f.pr.map(function(p,i){return '<div class="prod" style="animation-delay:'+(i*70)+'ms">'+icon(p[0])+'<span>'+p[1]+'</span></div>';}).join('')+'</div>';}
+function go(k){var idx=F.findIndex(function(f){return f.k===k;}),ci=F.findIndex(function(f){return f.k===cur;});$('#elvArrow').style.transform=idx<ci?'none':'rotate(180deg)';$$('button',btns).forEach(function(b){b.classList.toggle('on',b.getAttribute('data-k')===k);});var car=box.parentNode;if(reduce){render(F[idx]);}else{car.classList.add('shut');setTimeout(function(){render(F[idx]);$('#elvNum').textContent=k;car.classList.remove('shut');},480);}cur=k;if(reduce)$('#elvNum').textContent=k;}
+btns.addEventListener('click',function(e){var b=e.target.closest('button');if(b)go(b.getAttribute('data-k'));});
+render(F[3]);$$('button',btns).forEach(function(b){b.classList.toggle('on',b.getAttribute('data-k')==='1F');});})();
+
+/* ---------- AI demo ---------- */
+(function(){var drop=$('#aiDrop');if(!drop)return;
+function blob(k){var bg='#F3EFE4',s='';if(k==='A')s='<path d="M70 150 C70 120 110 112 150 118 C200 124 236 132 232 156 C228 182 190 188 150 186 C108 184 70 178 70 150Z" fill="#8B5A2B"/><path d="M96 140 C120 132 170 132 206 142" stroke="#6E4520" stroke-width="5" fill="none" opacity=".5"/>';else if(k==='B')s='<path d="M60 168 C70 140 110 150 130 136 C160 120 210 146 236 164 C250 176 230 196 190 194 C150 198 110 200 80 192 C60 188 56 180 60 168Z" fill="#B98A5A"/><ellipse cx="200" cy="176" rx="22" ry="8" fill="#C9A274"/>';else s='<g fill="#4A231E"><ellipse cx="110" cy="160" rx="26" ry="18"/><ellipse cx="160" cy="150" rx="22" ry="16"/><ellipse cx="200" cy="166" rx="18" ry="13"/></g><g fill="#7A2A22" opacity=".7"><circle cx="140" cy="176" r="6"/><circle cx="180" cy="140" r="4"/></g>';return '<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="300" fill="'+bg+'"/><rect y="200" width="300" height="100" fill="#E7DFCC"/>'+s+'</svg>';}
+var R={A:{g:[86,82,72],tip:'좋은 상태예요. 지금 식단과 급여량을 유지하세요',pr:[['bag','현재 사료 정기배송 유지'],['bottle','장 건강 유산균 (유지용)']]},B:{g:[42,70,88],tip:'변이 무른 편이에요. 급여량과 간식을 확인하고, 장 건강 케어를 고려해 보세요',pr:[['bottle','장 건강 유산균'],['box','저자극 사료 샘플러']]},C:{g:[58,22,40],alert:1,tip:'색이 평소와 많이 달라요. 상품 추천을 멈추고 가까운 동물병원 상담을 권합니다',pr:[]}};
+var smp=$('#aiSamples'),sel=null;
+smp.innerHTML=['A','B','C'].map(function(k){return '<button type="button" draggable="true" data-s="'+k+'">'+blob(k)+'예시 '+k+'</button>';}).join('');
+function load(k,url){sel=k;var img=$('#aiImg');img.src=url||('data:image/svg+xml;charset=utf-8,'+encodeURIComponent(blob(k)));drop.classList.add('has');$('#aiGo').disabled=false;$$('button',smp).forEach(function(b){b.classList.toggle('on',b.getAttribute('data-s')===k);});$$('#aiSteps li').forEach(function(l){l.classList.remove('ok');});$('#aiRes').innerHTML='<p style="color:var(--mute);font-size:16px">‘분석하기’를 눌러 보세요</p>';}
+smp.addEventListener('click',function(e){var b=e.target.closest('button');if(b)load(b.getAttribute('data-s'));});
+smp.addEventListener('dragstart',function(e){var b=e.target.closest('button');if(b)e.dataTransfer.setData('text/plain',b.getAttribute('data-s'));});
+drop.addEventListener('dragover',function(e){e.preventDefault();drop.classList.add('over');});drop.addEventListener('dragleave',function(){drop.classList.remove('over');});
+drop.addEventListener('drop',function(e){e.preventDefault();drop.classList.remove('over');var f=e.dataTransfer.files&&e.dataTransfer.files[0];if(f&&f.type.indexOf('image')===0){file(f);return;}var k=e.dataTransfer.getData('text/plain');if(R[k])load(k);});
+function file(f){var rd=new FileReader();rd.onload=function(){load(f.size%2?'A':'B',rd.result);};rd.readAsDataURL(f);}
+$('#aiFile').addEventListener('change',function(){if(this.files[0])file(this.files[0]);});
+$('#aiGo').addEventListener('click',function(){if(!sel)return;var b=this;b.disabled=true;drop.classList.add('busy');var li=$$('#aiSteps li');li.forEach(function(l){l.classList.remove('ok');});var i=0;var iv=setInterval(function(){li[i].classList.add('ok');i++;if(i>=li.length){clearInterval(iv);setTimeout(function(){drop.classList.remove('busy');show(R[sel]);b.disabled=false;},350);}},reduce?50:520);});
+function show(r){var lb=['모양','색','수분'],h='';if(r.alert)h+='<div class="alert">⚠ 이상 신호가 보여요. '+r.tip+'</div>';h+=r.g.map(function(v,i){var col=v>=70?'var(--g)':v>=45?'var(--gold)':'var(--red)';return '<div class="gauge"><span>'+lb[i]+'</span><div class="bar" style="height:12px"><i style="width:'+v+'%;background:'+col+';transition:width .9s"></i></div><b class="num">'+v+'</b></div>';}).join('');if(!r.alert)h+='<p class="tip">'+r.tip+'</p>';h+=r.pr.length?'<p style="font-size:14px;color:var(--sub)">콩이(말티즈·3.2kg)에게 맞춘 케어 상품</p>'+r.pr.map(function(p){return '<div class="rp">'+icon(p[0])+'<b>'+p[1]+'</b><span style="margin-left:auto;color:var(--redk);font-size:13px">담기 ›</span></div>';}).join(''):'<div class="rp" style="background:var(--bbg)">'+icon('stetho')+'<b>가까운 제휴 동물병원 보기</b></div>';h+='<p class="fn" style="margin:0">케어 참고 정보이며 진단이 아닙니다 · 11PET AI 케어</p>';$('#aiRes').innerHTML=h;}
+})();
+
+/* ---------- recommendation engine ---------- */
+(function(){var c=$('#recCtl');if(!c)return;
+var BR={dog:[['말티즈','S',3.2,1],['푸들','S',4,0],['포메라니안','S',2.5,1],['웰시코기','M',12,0],['골든 리트리버','L',30,1]],cat:[['코리안 숏헤어','A',4.5,0],['러시안 블루','A',4.5,0],['페르시안','A',4,1]]};
+var P=[{n:'소형견 퍼피 연어 사료 2kg',sp:'dog',sz:'S',st:'puppy',pro:'연어',gf:1,c:'사료',i:'bag',g:2000},
+{n:'소형견 성견 오리 사료 2kg',sp:'dog',sz:'S',st:'adult',pro:'오리',gf:1,c:'사료',i:'bag',g:2000},
+{n:'소형견 성견 닭고기 사료 2kg',sp:'dog',sz:'S',st:'adult',pro:'닭고기',gf:0,c:'사료',i:'bag',g:2000},
+{n:'중·대형견 성견 소고기 사료 6kg',sp:'dog',sz:'ML',st:'adult',pro:'소고기',gf:0,c:'사료',i:'bag',g:6000},
+{n:'대형견 퍼피 닭고기 사료 6kg',sp:'dog',sz:'L',st:'puppy',pro:'닭고기',gf:0,c:'사료',i:'bag',g:6000},
+{n:'중형견 퍼피 연어 사료 4kg',sp:'dog',sz:'M',st:'puppy',pro:'연어',gf:1,c:'사료',i:'bag',g:4000},
+{n:'노령견 관절 케어 사료 2kg',sp:'dog',sz:'SM',st:'senior',pro:'연어',gf:1,c:'사료',i:'bag',g:2000},
+{n:'대형견 노령 저칼로리 사료 6kg',sp:'dog',sz:'L',st:'senior',pro:'오리',gf:1,c:'사료',i:'bag',g:6000},
+{n:'중성화견 체중 관리 사료 2kg',sp:'dog',sz:'SM',st:'adult',pro:'칠면조',gf:1,c:'사료',i:'bag',g:2000,neu:1},
+{n:'저알러지 연어 트릿',sp:'dog',sz:'SML',st:'all',pro:'연어',gf:1,c:'간식',i:'chew'},
+{n:'관절 영양제',sp:'dog',sz:'SML',st:'senior',c:'영양제',i:'bottle',care:'관절'},
+{n:'장 건강 유산균',sp:'both',sz:'SMLA',st:'all',c:'영양제',i:'bottle'},
+{n:'퍼피 치아 발달 껌',sp:'dog',sz:'SM',st:'puppy',pro:'닭고기',gf:0,c:'간식',i:'chew'},
+{n:'장모견 브러시',sp:'dog',sz:'SML',st:'all',c:'위생',i:'comb',coat:1},
+{n:'키튼 연어 사료 1.5kg',sp:'cat',sz:'A',st:'puppy',pro:'연어',gf:1,c:'사료',i:'bag',g:1500},
+{n:'성묘 칠면조 사료 1.5kg',sp:'cat',sz:'A',st:'adult',pro:'칠면조',gf:1,c:'사료',i:'bag',g:1500},
+{n:'노령묘 신장 케어 사료 1.5kg',sp:'cat',sz:'A',st:'senior',pro:'오리',gf:1,c:'사료',i:'bag',g:1500},
+{n:'중성화묘 체중 관리 사료 1.5kg',sp:'cat',sz:'A',st:'adult',pro:'닭고기',gf:0,c:'사료',i:'bag',g:1500,neu:1},
+{n:'헤어볼 케어 간식',sp:'cat',sz:'A',st:'all',pro:'닭고기',gf:0,c:'간식',i:'chew'},
+{n:'장모묘 브러시',sp:'cat',sz:'A',st:'all',c:'위생',i:'comb',coat:1},
+{n:'노령묘 관절 영양제',sp:'cat',sz:'A',st:'senior',c:'영양제',i:'bottle',care:'관절'}];
+var sp='dog',alg={'닭고기':1};
+var bs=$('#recBreed');
+function fillBreeds(){bs.innerHTML=BR[sp].map(function(b,i){return '<option value="'+i+'">'+b[0]+'</option>';}).join('');}
+function setDefaults(){var b=BR[sp][bs.value|0];$('#recW').value=b[2];}
+$$('.seg2 button',c).forEach(function(b){b.addEventListener('click',function(){sp=b.getAttribute('data-sp');$$('.seg2 button',c).forEach(function(x){x.classList.toggle('on',x===b);});fillBreeds();setDefaults();run();});});
+$$('.alg button',c).forEach(function(b){b.addEventListener('click',function(){var a=b.getAttribute('data-a');if(alg[a])delete alg[a];else alg[a]=1;b.classList.toggle('on',!!alg[a]);run();});});
+bs.addEventListener('change',function(){setDefaults();run();});
+['recAge','recW','recNeu'].forEach(function(id){$('#'+id).addEventListener('input',run);$('#'+id).addEventListener('change',run);});
+function age(m){return m<24?m+'개월':Math.floor(m/12)+'살'+(m%12?' '+(m%12)+'개월':'');}
+function run(){var b=BR[sp][bs.value|0],sz=b[1],coat=b[3],m=+$('#recAge').value,w=+$('#recW').value,neu=$('#recNeu').checked;
+ $('#recAgeO').textContent=age(m);$('#recWO').textContent=fmt(w,1)+'kg';
+ var adultAt=sp==='cat'?12:(sz==='L'?18:12),seniorAt=sp==='cat'?132:(sz==='L'?72:84);
+ var st=m<adultAt?'puppy':(m>=seniorAt?'senior':'adult');
+ var stN={puppy:sp==='cat'?'키튼(성장기)':'퍼피(성장기)',adult:sp==='cat'?'성묘':'성견',senior:sp==='cat'?'노령묘':'노령견'}[st];
+ var szN={S:'소형',M:'중형',L:'대형',A:'고양이'}[sz];
+ var cal;
+ if(st==='puppy'){var r=adultAt-m;if(r<=2)cal=r+'개월 뒤, '+(sp==='cat'?'성묘':'성견')+' 사료로 바꿀 시기예요';else if(!neu&&m>=5)cal='중성화 상담 시기예요. 이후엔 체중 관리 사료로';else cal='성장기예요. '+r+'개월 뒤 사료 전환을 알려드릴게요';}
+ else if(st==='adult'){var y=(seniorAt-m)/12;if(y<=1)cal='1년 안에 노령 사료로 바꿀 준비를 시작하세요';else if(neu)cal='중성화 후엔 체중 관리가 중요해요. 매달 체중을 기록하세요';else cal='건강한 성견기예요. 매일 사진 케어 기록을 이어가세요';}
+ else cal='노령기예요. 관절·신장 케어와 매일 사진 기록을 시작하세요';
+ var care=[];if(st==='senior')care.push('관절');if(neu&&st==='adult')care.push('체중 관리');if(coat)care.push('털 관리');
+ var ex=Object.keys(alg);
+ $('#recAttr').textContent='체급 '+szN+' · 생애주기 '+stN+' · 제외 성분 '+(ex.length?ex.join(', '):'없음')+' · 케어 필요 '+(care.length?care.join(', '):'일반');
+ var ok=[],grid='';
+ P.forEach(function(p,idx){var mt=(p.sp===sp||p.sp==='both')&&(p.sz.indexOf(sz)>=0)&&(p.st==='all'||p.st===st);if(mt&&p.pro&&alg[p.pro])mt=false;if(mt&&alg['곡물']&&p.c!=='영양제'&&p.c!=='위생'&&p.gf===0)mt=false;if(mt&&p.neu&&!(neu&&st==='adult'))mt=false;if(mt&&p.coat&&!coat)mt=false;
+  if(mt){var s=0;if(p.c==='사료')s+=3;if(p.st===st)s+=2;if(p.sz.length===1)s+=1;if(p.neu)s+=2;if(p.care&&care.indexOf(p.care)>=0)s+=2.5;if(p.coat)s+=1.2;if(p.c==='영양제'&&!p.care)s+=0.5;ok.push({p:p,s:s});}
+  grid+='<i class="'+(mt?'m':'')+'" title="'+p.n+'"></i>';});
+ $('#recGrid').innerHTML=grid;$('#recMatch').textContent='전체 '+P.length+'개 상품 중 조건이 맞는 상품 '+ok.length+'개 (빨간 칸)';
+ ok.sort(function(a,b){return b.s-a.s;});var top=ok.slice(0,3);
+ $('#recList').innerHTML=top.map(function(o,i){var p=o.p,tg=[];if(p.sz.length===1&&sz!=='A')tg.push(szN+'견');if(p.st===st)tg.push(stN);if(ex.length&&p.pro)tg.push(ex.join('·')+' 없음');if(p.neu)tg.push('중성화 맞춤');if(p.care)tg.push(p.care+' 케어');if(p.coat)tg.push('장모 케어');if(!tg.length)tg.push(p.c);return '<div class="rc" style="animation-delay:'+(i*80)+'ms">'+icon(p.i)+'<div><b>'+p.n+'</b><div class="tags">'+tg.map(function(t){return '<span>✓ '+t+'</span>';}).join('')+'</div></div></div>';}).join('')||'<p style="font-size:13px;color:var(--sub)">조건에 맞는 상품이 없어요. 알레르기 조건을 줄여 보세요</p>';
+ var food=top.filter(function(o){return o.p.g;})[0],daily=(sp==='cat'?13:16)*Math.pow(w,0.75);
+ $('#recDays').textContent=food?('약 '+Math.round(food.p.g/daily)+'일 뒤 알림'):'—';
+ var name=sp==='cat'?'나비':'콩이';$('#recName').textContent=name;$('#recAv').innerHTML=petSVG(sp,sp==='cat'?'#9A9A9A':'#E8B77A','happy');$('#recAv').style.background='var(--soft)';
+ $('#recSum').textContent=b[0]+' · '+(neu?'중성화':'중성화 전')+' · '+age(m)+' · '+fmt(w,1)+'kg';$('#recStage').textContent=stN+(ex.length?' · 알레르기 '+ex.join(', '):'');$('#recCal').textContent=cal;}
+fillBreeds();run();})();
+
+/* ---------- network effect ---------- */
+(function(){var r=$('#netR');if(!r)return;
+function users(v){return Math.round(Math.pow(10,3+v/100*3));}
+function acc(u){return 55+35*(1-Math.exp(-u/250000));}
+var W=900,H=380,L=60,B=330,T=20,Rr=880;
+function xp(v){return L+(Rr-L)*v/100;}function yp(a){return B-(B-T)*(a-50)/45;}
+var path='',cpath='';for(var v=0;v<=100;v+=1){path+=(v?'L':'M')+xp(v).toFixed(1)+' '+yp(acc(users(v))).toFixed(1);var cu=Math.max(1000,users(v)*0.3);cpath+=(v?'L':'M')+xp(v).toFixed(1)+' '+yp(acc(cu)).toFixed(1);}
+var ticks=[0,33.3,66.7,100].map(function(v,i){return '<text x="'+xp(v)+'" y="'+(B+26)+'" font-size="15" text-anchor="middle" fill="#94919E">'+['1천','1만','10만','100만'][i]+'명</text>';}).join('')+[60,70,80,90].map(function(a){return '<line x1="'+L+'" x2="'+Rr+'" y1="'+yp(a)+'" y2="'+yp(a)+'" stroke="#E5E3EB"/><text x="'+(L-10)+'" y="'+(yp(a)+5)+'" font-size="14" text-anchor="end" fill="#94919E">'+a+'%</text>';}).join('');
+$('#netSvg').innerHTML=ticks+'<path d="'+cpath+'" fill="none" stroke="#94919E" stroke-width="3" stroke-dasharray="8 6"/><path d="'+path+'" fill="none" stroke="#F43142" stroke-width="5"/><line id="netV" y1="'+T+'" y2="'+B+'" stroke="#F43142" stroke-dasharray="4 4"/><rect id="netGap" x="0" width="14" fill="#F43142" opacity=".15"/><circle id="netP" r="11" fill="#F43142" stroke="#fff" stroke-width="4"/><circle id="netQ" r="8" fill="#94919E" stroke="#fff" stroke-width="3"/><text x="'+(Rr-6)+'" y="'+(yp(acc(1e6))-14)+'" font-size="16" font-weight="700" text-anchor="end" fill="#C4172A">11PET</text><text x="'+xp(88)+'" y="'+(yp(acc(users(88)*0.3))+34)+'" font-size="15" text-anchor="middle" fill="#94919E">1년 늦게 시작한 경쟁사</text><text x="'+L+'" y="'+(B+50)+'" font-size="14" fill="#94919E">사용자 수 (로그 눈금)</text>';
+function up(){var v=+r.value,u=users(v),a=acc(u),cu=Math.max(1000,u*0.3),ca=acc(cu),x=xp(v);
+ $('#netU').textContent=u>=10000?fmt(u/10000,u<100000?1:0)+'만 명':fmt(u)+'명';
+ $('#netD').textContent=(u*6>=10000?fmt(u*6/10000,0)+'만':fmt(u*6))+' 건';$('#netA').textContent=fmt(a,1)+'%';$('#netC').textContent=fmt(ca,1)+'%  (격차 '+fmt(a-ca,1)+'%p)';
+ $('#netP').setAttribute('cx',x);$('#netP').setAttribute('cy',yp(a));$('#netQ').setAttribute('cx',x);$('#netQ').setAttribute('cy',yp(ca));$('#netV').setAttribute('x1',x);$('#netV').setAttribute('x2',x);var g=$('#netGap');g.setAttribute('x',x-7);g.setAttribute('y',yp(a));g.setAttribute('height',Math.max(0,yp(ca)-yp(a)));}
+r.addEventListener('input',up);up();})();
+
+/* ---------- ad tabs ---------- */
+$$('#adTabs button').forEach(function(b){b.addEventListener('click',function(){var t=b.getAttribute('data-t');$$('#adTabs button').forEach(function(x){x.classList.toggle('on',x===b);});$$('.ad').forEach(function(a){a.classList.toggle('on',a.getAttribute('data-p')===t);});});});
+
+/* ---------- instagram ---------- */
+(function(){var f=$('#igFeed');if(!f)return;
+var names=[['11PET','dog','#F43142'],['콩이','dog','#E8B77A'],['보리','dog','#D8D0C2'],['나비','cat','#9A9A9A'],['두부','dog','#F4E3C8'],['몽이','cat','#C98B5B']];
+$('#igStories').innerHTML=names.map(function(n){return '<div class="st"><i><span>'+(n[0]==='11PET'?'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#F43142"/><text x="50" y="62" font-size="34" font-weight="900" text-anchor="middle" fill="#fff" font-family="Archivo,Arial">11</text></svg>':petSVG(n[1],n[2],'happy'))+'</span></i>'+n[0]+'</div>';}).join('');
+var posts=[['sampler',1284,'우리 개가 먹을까? 고민은 샘플러 10종으로 끝 🐾 #우리개가먹을까'],['cal',932,'콩이 첫 생일 🎂 오늘부터 성견 사료로. 생애주기 캘린더가 미리 알려줬어요'],['senior',2051,'13살 보리의 아침 루틴. 사진 한 장으로 오늘 케어 체크 ✓'],['cat',744,'러시안 블루 82%가 잘 먹은 사료, 나비도 완식 😻']];
+f.innerHTML=posts.map(function(p,i){return '<div class="post"><div class="ph"><span class="lg">11</span><b>11pet.official</b></div><div class="adimg" data-i="'+i+'">'+scene(p[0])+'</div><div class="pa"><button type="button" class="hb" data-i="'+i+'" aria-label="좋아요">♡</button><span>💬</span><span>↗</span></div><div class="pl">좋아요 <span class="num" id="lk'+i+'">'+fmt(p[1])+'</span>개</div><div class="pc"><b>11pet.official</b> '+p[2]+'</div>'+(i===0?'<div id="cmts"></div>':'')+'</div>';}).join('');
+var likes=posts.map(function(p){return p[1];}),liked=[];
+function like(i,img){if(!liked[i]){liked[i]=1;likes[i]++;var b=$('.hb[data-i="'+i+'"]');b.textContent='♥';b.classList.add('lk');$('#lk'+i).textContent=fmt(likes[i]);}if(img){var h=document.createElement('span');h.className='burst';h.textContent='♥';img.style.position='relative';img.appendChild(h);setTimeout(function(){h.remove();},850);}}
+f.addEventListener('click',function(e){var b=e.target.closest('.hb');if(b){var i=+b.getAttribute('data-i');if(liked[i]){liked[i]=0;likes[i]--;b.textContent='♡';b.classList.remove('lk');$('#lk'+i).textContent=fmt(likes[i]);}else like(i,$('.adimg[data-i="'+i+'"]',f));}});
+f.addEventListener('dblclick',function(e){var im=e.target.closest('.adimg');if(im)like(+im.getAttribute('data-i'),im);});
+$$('.ig-tabs button').forEach(function(b){b.addEventListener('click',function(){var t=b.getAttribute('data-ig');$$('.ig-tabs button').forEach(function(x){x.classList.toggle('on',x===b);});$$('[data-igp]').forEach(function(p){p.hidden=p.getAttribute('data-igp')!==t;});});});
+var CM=['@boriboo 우리 집도 해봐야겠어요','@maltese_kong 3번 사료 완식했어요!','@nyang_daily 고양이용도 있나요?','@senior_dog_mom 노견 케어 정보 너무 유용해요','@puppy_life 샘플러 신청했어요 🙌','@corgi_dubu 7번은 반쯤 남겼어요 ㅎㅎ'];
+var ci=0,started=false,wall=$('#ugcWall'),n=1850;
+var UG=['3번 완식','7번 반쯤','1번 거부','5번 완식','2번 완식','9번 완식','4번 반쯤','6번 완식'],UN=['콩이','보리','나비','두부','몽이','초코','하루','루비','코코','별이'];
+function tickC(){var c=$('#cmts');var d=document.createElement('div');d.className='cm';d.textContent=CM[ci%CM.length];c.appendChild(d);while(c.children.length>3)c.removeChild(c.firstChild);ci++;}
+function tickW(){var t=Math.random()<0.3?'cat':'dog',col=PC[Math.floor(Math.random()*PC.length)];var d=document.createElement('div');d.className='ug';d.innerHTML=petSVG(t,col,'happy')+'<b>'+UN[Math.floor(Math.random()*UN.length)]+'</b><span>'+UG[Math.floor(Math.random()*UG.length)]+'</span>';wall.insertBefore(d,wall.firstChild);while(wall.children.length>18)wall.removeChild(wall.lastChild);n+=3+Math.floor(Math.random()*6);$('#ugcN').textContent=fmt(n);}
+var sec=wall.closest('section');sec.addEventListener('seen',function(){if(started)return;started=true;for(var i=0;i<8;i++)tickW();tickC();if(!reduce){setInterval(tickW,1100);setInterval(tickC,2600);}});
+})();
+
+/* ---------- initial hash ---------- */
+var hm=(location.hash||'').replace('#','');if(hm){var el=document.getElementById(hm);if(el)setTimeout(function(){el.scrollIntoView();},60);}
+onScroll();
+})();
+
+</script>
+</body>
+</html>
